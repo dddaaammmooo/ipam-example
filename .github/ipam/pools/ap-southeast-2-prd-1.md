@@ -1,4 +1,4 @@
-# reserved-lan
+# ap-southeast-2-prd-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,23 +8,23 @@
 
 [← Back to Overview](../README.md)
 
-> 🟠 **RESERVED** — This pool is reserved for future use. Allocations are not permitted.
-
-*Never allocate: overlaps typical home/office LANs*
+*prd VPCs in ap-southeast-2*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | reserved-lan |
-| CIDR | `192.168.0.0/16` (192.168.0.0 - 192.168.255.255) |
-| Total Addresses | 65,536 |
-| Allocated | 0/65,536 (0.0%) |
-| Owner | network |
+| Pool Name | ap-southeast-2-prd-1 |
+| CIDR | `10.32.0.0/12` (10.32.0.0 - 10.47.255.255) |
+| Total Addresses | 1,048,576 |
+| Allocated | 0/1,048,576 (0.0%) |
+| Environment | prd |
+| Owner | platform |
+| Region | ap-southeast-2 |
 
 ## Allocations
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| ⚪&nbsp;&nbsp;Available | — | `192.168.0.0/16` (192.168.0.0 - 192.168.255.255) | 65,536 |
+| ⚪&nbsp;&nbsp;Available | — | `10.32.0.0/12` (10.32.0.0 - 10.47.255.255) | 1,048,576 |
 

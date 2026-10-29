@@ -11,10 +11,10 @@ locals {
   # "media-streaming-prd" => { product, env, pool, mask, ... }
   vpcs = merge([
     for product, p in local.catalogue : {
-      for env, pool in var.env_pools : "${product}-${env}" => {
+      for env in var.environments : "${product}-${env}" => {
         product = product
         env     = env
-        pool    = pool
+        pool    = p.pools[env]
         mask    = p.vpc[env]
         size    = p.size
         team    = p.team

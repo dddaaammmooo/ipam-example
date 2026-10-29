@@ -1,4 +1,4 @@
-# staging-eu-west-1
+# eu-west-1-stg-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,17 +8,17 @@
 
 [← Back to Overview](../README.md)
 
-*Staging VPCs in eu-west-1*
+*stg VPCs in eu-west-1*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | staging-eu-west-1 |
+| Pool Name | eu-west-1-stg-1 |
 | CIDR | `10.48.0.0/13` (10.48.0.0 - 10.55.255.255) |
 | Total Addresses | 524,288 |
 | Allocated | 301,824/524,288 (57.6%) |
-| Environment | staging |
+| Environment | stg |
 | Owner | platform |
 | Region | eu-west-1 |
 

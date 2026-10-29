@@ -2,62 +2,80 @@
 #
 # Read by the easytofu/github-ipam provider. Changes go through a pull
 # request reviewed by CODEOWNERS; CI checks every CIDR is valid, private
-# (RFC 1918) and does not overlap another pool.
+# (RFC 1918), does not overlap another pool, and that pool IDs follow the
+# naming convention below.
+#
+# Naming convention:  <scope>-<kind>-<N>
+#   scope  an AWS region (eu-west-1), or "global" for pools not tied to one
+#   kind   prd | stg | dev for environments; shared | overlay | reserved
+#   N      1, 2, ... a new pool is opened when the previous one is full
+#
+# Pool IDs are permanent: allocations and Terraform stacks reference them,
+# and changing an allocation's pool_id replaces it (new CIDR). Stacks pin
+# the pool per VPC, so opening -2 never moves anything already on -1.
 #
 # Layout of 10.0.0.0/8:
-#   10.0.0.0/11   prod-eu-west-1        (2,097,152 addresses: prd VPCs)
-#   10.32.0.0/12  prod-ap-southeast-2   (1,048,576)
-#   10.48.0.0/13  staging-eu-west-1     (524,288: stg VPCs)
-#   10.56.0.0/13  staging-ap-southeast-2
-#   10.64.0.0/12  development           (dev VPCs, any region)
-#   10.80.0.0/16  shared-services
-#   10.81.0.0 - 10.127.255.255  unassigned headroom
-#   10.128.0.0/9  reserved-future       (no allocations allowed)
-#
-# Pool IDs are referenced by Terraform as `pool_id`, so treat them as
-# permanent: renaming a pool orphans its allocations.
+#   10.0.0.0/12   eu-west-1-prd-1       FULL (1,048,576 of 1,048,576)
+#   10.16.0.0/12  eu-west-1-prd-2       opened when -1 filled; same /11 as
+#                                       -1, so eu-west-1 prd still
+#                                       summarises as 10.0.0.0/11
+#   10.32.0.0/12  ap-southeast-2-prd-1
+#   10.48.0.0/13  eu-west-1-stg-1
+#   10.56.0.0/13  ap-southeast-2-stg-1
+#   10.64.0.0/12  global-dev-1          (dev is not split by region)
+#   10.80.0.0/16  global-shared-1
+#   10.81.0.0 - 10.127.255.255          unassigned: next pools come from here
+#   10.128.0.0/9  global-reserved-1     (no allocations allowed)
 
 pools:
-  prod-eu-west-1:
-    cidr: ["10.0.0.0/11"]
-    description: "Production VPCs in eu-west-1"
+  eu-west-1-prd-1:
+    cidr: ["10.0.0.0/12"]
+    description: "prd VPCs in eu-west-1 (full: new VPCs go to eu-west-1-prd-2)"
     metadata:
-      environment: production
+      environment: prd
       region: eu-west-1
       owner: platform
 
-  prod-ap-southeast-2:
+  eu-west-1-prd-2:
+    cidr: ["10.16.0.0/12"]
+    description: "prd VPCs in eu-west-1, opened when eu-west-1-prd-1 filled"
+    metadata:
+      environment: prd
+      region: eu-west-1
+      owner: platform
+
+  ap-southeast-2-prd-1:
     cidr: ["10.32.0.0/12"]
-    description: "Production VPCs in ap-southeast-2"
+    description: "prd VPCs in ap-southeast-2"
     metadata:
-      environment: production
+      environment: prd
       region: ap-southeast-2
       owner: platform
 
-  staging-eu-west-1:
+  eu-west-1-stg-1:
     cidr: ["10.48.0.0/13"]
-    description: "Staging VPCs in eu-west-1"
+    description: "stg VPCs in eu-west-1"
     metadata:
-      environment: staging
+      environment: stg
       region: eu-west-1
       owner: platform
 
-  staging-ap-southeast-2:
+  ap-southeast-2-stg-1:
     cidr: ["10.56.0.0/13"]
-    description: "Staging VPCs in ap-southeast-2"
+    description: "stg VPCs in ap-southeast-2"
     metadata:
-      environment: staging
+      environment: stg
       region: ap-southeast-2
       owner: platform
 
-  development:
+  global-dev-1:
     cidr: ["10.64.0.0/12"]
-    description: "Development and sandbox VPCs, all regions (not split by region)"
+    description: "dev and sandbox VPCs, all regions"
     metadata:
-      environment: development
+      environment: dev
       owner: platform
 
-  shared-services:
+  global-shared-1:
     cidr: ["10.80.0.0/16"]
     description: "Transit gateway, VPN, DNS resolvers, inspection VPCs"
     metadata:
@@ -66,14 +84,14 @@ pools:
 
   # A pool may hold several CIDRs; allocations fill the first one before
   # moving on. Here the 172.16/12 range is kept for container overlays.
-  container-overlay:
+  global-overlay-1:
     cidr: ["172.16.0.0/13", "172.24.0.0/14"]
     description: "Kubernetes pod and service ranges that never leave the cluster"
     metadata:
       environment: any
       owner: platform
 
-  reserved-future:
+  global-reserved-1:
     cidr: ["10.128.0.0/9"]
     description: "Held back for acquisitions and future regions"
     reserved: true
@@ -82,7 +100,7 @@ pools:
 
   # Commonly used by home routers and office LANs. Reserved so no VPC is
   # ever allocated here and clashes with a VPN client's local network.
-  reserved-lan:
+  global-reserved-2:
     cidr: ["192.168.0.0/16"]
     description: "Never allocate: overlaps typical home/office LANs"
     reserved: true

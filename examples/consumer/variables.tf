@@ -16,14 +16,10 @@ variable "ipam_repository" {
   default     = "ipam-example"
 }
 
-variable "env_pools" {
-  description = "Which pool in config/pools.yaml each environment's VPCs come from. prd and stg pools are per region (match var.aws_region); development is one pool for all regions."
-  type        = map(string)
-  default = {
-    dev = "development"
-    stg = "staging-eu-west-1"
-    prd = "prod-eu-west-1"
-  }
+variable "environments" {
+  description = "Environments every product gets a VPC in. Each product's pool per environment is pinned in products.yaml (pools)."
+  type        = list(string)
+  default     = ["dev", "stg", "prd"]
 }
 
 variable "azs" {

@@ -1,4 +1,4 @@
-# prod-eu-west-1
+# eu-west-1-prd-2
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,17 +8,17 @@
 
 [← Back to Overview](../README.md)
 
-*Production VPCs in eu-west-1*
+*prd VPCs in eu-west-1, opened when eu-west-1-prd-1 filled*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | prod-eu-west-1 |
-| CIDR | `10.0.0.0/11` (10.0.0.0 - 10.31.255.255) |
-| Total Addresses | 2,097,152 |
-| Allocated | 1,206,272/2,097,152 (57.5%) |
-| Environment | production |
+| Pool Name | eu-west-1-prd-2 |
+| CIDR | `10.16.0.0/12` (10.16.0.0 - 10.31.255.255) |
+| Total Addresses | 1,048,576 |
+| Allocated | 157,696/1,048,576 (15.0%) |
+| Environment | prd |
 | Owner | platform |
 | Region | eu-west-1 |
 
@@ -26,77 +26,13 @@
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| 🔵&nbsp;&nbsp;Allocated | media-streaming-prd-vpc | `10.0.0.0/14` (10.0.0.0 - 10.3.255.255) | 262,144 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-compute-eu-west-1a | `10.0.0.0/16` (10.0.0.0 - 10.0.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-compute-eu-west-1b | `10.1.0.0/16` (10.1.0.0 - 10.1.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-compute-eu-west-1c | `10.2.0.0/16` (10.2.0.0 - 10.2.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-public-eu-west-1a | `10.3.0.0/20` (10.3.0.0 - 10.3.15.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-public-eu-west-1b | `10.3.16.0/20` (10.3.16.0 - 10.3.31.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-public-eu-west-1c | `10.3.32.0/20` (10.3.32.0 - 10.3.47.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-data-eu-west-1a | `10.3.48.0/22` (10.3.48.0 - 10.3.51.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-data-eu-west-1b | `10.3.52.0/22` (10.3.52.0 - 10.3.55.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;media-streaming-prd-data-eu-west-1c | `10.3.56.0/22` (10.3.56.0 - 10.3.59.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | ml-training-prd-vpc | `10.4.0.0/14` (10.4.0.0 - 10.7.255.255) | 262,144 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-compute-eu-west-1a | `10.4.0.0/16` (10.4.0.0 - 10.4.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-compute-eu-west-1b | `10.5.0.0/16` (10.5.0.0 - 10.5.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-compute-eu-west-1c | `10.6.0.0/16` (10.6.0.0 - 10.6.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-data-eu-west-1a | `10.7.0.0/18` (10.7.0.0 - 10.7.63.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-data-eu-west-1b | `10.7.64.0/18` (10.7.64.0 - 10.7.127.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;ml-training-prd-data-eu-west-1c | `10.7.128.0/18` (10.7.128.0 - 10.7.191.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | data-lake-prd-vpc | `10.8.0.0/15` (10.8.0.0 - 10.9.255.255) | 131,072 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-data-eu-west-1a | `10.8.0.0/17` (10.8.0.0 - 10.8.127.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-data-eu-west-1b | `10.8.128.0/17` (10.8.128.0 - 10.8.255.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-data-eu-west-1c | `10.9.0.0/17` (10.9.0.0 - 10.9.127.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-compute-eu-west-1a | `10.9.128.0/19` (10.9.128.0 - 10.9.159.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-compute-eu-west-1b | `10.9.160.0/19` (10.9.160.0 - 10.9.191.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;data-lake-prd-compute-eu-west-1c | `10.9.192.0/19` (10.9.192.0 - 10.9.223.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | search-indexing-prd-vpc | `10.10.0.0/15` (10.10.0.0 - 10.11.255.255) | 131,072 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-compute-eu-west-1a | `10.10.0.0/18` (10.10.0.0 - 10.10.63.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-compute-eu-west-1b | `10.10.64.0/18` (10.10.64.0 - 10.10.127.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-compute-eu-west-1c | `10.10.128.0/18` (10.10.128.0 - 10.10.191.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-data-eu-west-1a | `10.10.192.0/18` (10.10.192.0 - 10.10.255.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-data-eu-west-1b | `10.11.0.0/18` (10.11.0.0 - 10.11.63.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-data-eu-west-1c | `10.11.64.0/18` (10.11.64.0 - 10.11.127.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-public-eu-west-1a | `10.11.128.0/24` (10.11.128.0 - 10.11.128.255) | 256 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-public-eu-west-1b | `10.11.129.0/24` (10.11.129.0 - 10.11.129.255) | 256 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;search-indexing-prd-public-eu-west-1c | `10.11.130.0/24` (10.11.130.0 - 10.11.130.255) | 256 |
-| 🔵&nbsp;&nbsp;Allocated | video-transcoding-prd-vpc | `10.12.0.0/15` (10.12.0.0 - 10.13.255.255) | 131,072 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-compute-eu-west-1a | `10.12.0.0/17` (10.12.0.0 - 10.12.127.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-compute-eu-west-1b | `10.12.128.0/17` (10.12.128.0 - 10.12.255.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-compute-eu-west-1c | `10.13.0.0/17` (10.13.0.0 - 10.13.127.255) | 32,768 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-data-eu-west-1a | `10.13.128.0/20` (10.13.128.0 - 10.13.143.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-data-eu-west-1b | `10.13.144.0/20` (10.13.144.0 - 10.13.159.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-data-eu-west-1c | `10.13.160.0/20` (10.13.160.0 - 10.13.175.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-public-eu-west-1a | `10.13.176.0/22` (10.13.176.0 - 10.13.179.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-public-eu-west-1b | `10.13.180.0/22` (10.13.180.0 - 10.13.183.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;video-transcoding-prd-public-eu-west-1c | `10.13.184.0/22` (10.13.184.0 - 10.13.187.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | log-archive-prd-vpc | `10.14.0.0/16` (10.14.0.0 - 10.14.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1a | `10.14.0.0/18` (10.14.0.0 - 10.14.63.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1b | `10.14.64.0/18` (10.14.64.0 - 10.14.127.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1c | `10.14.128.0/18` (10.14.128.0 - 10.14.191.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1a | `10.14.192.0/22` (10.14.192.0 - 10.14.195.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1b | `10.14.196.0/22` (10.14.196.0 - 10.14.199.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1c | `10.14.200.0/22` (10.14.200.0 - 10.14.203.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | realtime-messaging-prd-vpc | `10.15.0.0/16` (10.15.0.0 - 10.15.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-compute-eu-west-1a | `10.15.0.0/18` (10.15.0.0 - 10.15.63.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-compute-eu-west-1b | `10.15.64.0/18` (10.15.64.0 - 10.15.127.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-compute-eu-west-1c | `10.15.128.0/18` (10.15.128.0 - 10.15.191.255) | 16,384 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-data-eu-west-1a | `10.15.192.0/21` (10.15.192.0 - 10.15.199.255) | 2,048 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-data-eu-west-1b | `10.15.200.0/21` (10.15.200.0 - 10.15.207.255) | 2,048 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-data-eu-west-1c | `10.15.208.0/21` (10.15.208.0 - 10.15.215.255) | 2,048 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-public-eu-west-1a | `10.15.216.0/22` (10.15.216.0 - 10.15.219.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-public-eu-west-1b | `10.15.220.0/22` (10.15.220.0 - 10.15.223.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;realtime-messaging-prd-public-eu-west-1c | `10.15.224.0/22` (10.15.224.0 - 10.15.227.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | web-storefront-prd-vpc | `10.16.0.0/16` (10.16.0.0 - 10.16.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-compute-eu-west-1a | `10.16.0.0/19` (10.16.0.0 - 10.16.31.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-compute-eu-west-1b | `10.16.32.0/19` (10.16.32.0 - 10.16.63.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-compute-eu-west-1c | `10.16.64.0/19` (10.16.64.0 - 10.16.95.255) | 8,192 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-public-eu-west-1a | `10.16.96.0/20` (10.16.96.0 - 10.16.111.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-public-eu-west-1b | `10.16.112.0/20` (10.16.112.0 - 10.16.127.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-public-eu-west-1c | `10.16.128.0/20` (10.16.128.0 - 10.16.143.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-data-eu-west-1a | `10.16.144.0/22` (10.16.144.0 - 10.16.147.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-data-eu-west-1b | `10.16.148.0/22` (10.16.148.0 - 10.16.151.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;web-storefront-prd-data-eu-west-1c | `10.16.152.0/22` (10.16.152.0 - 10.16.155.255) | 1,024 |
+| 🔵&nbsp;&nbsp;Allocated | log-archive-prd-vpc | `10.16.0.0/16` (10.16.0.0 - 10.16.255.255) | 65,536 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1a | `10.16.0.0/18` (10.16.0.0 - 10.16.63.255) | 16,384 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1b | `10.16.64.0/18` (10.16.64.0 - 10.16.127.255) | 16,384 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-data-eu-west-1c | `10.16.128.0/18` (10.16.128.0 - 10.16.191.255) | 16,384 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1a | `10.16.192.0/22` (10.16.192.0 - 10.16.195.255) | 1,024 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1b | `10.16.196.0/22` (10.16.196.0 - 10.16.199.255) | 1,024 |
+| 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;log-archive-prd-compute-eu-west-1c | `10.16.200.0/22` (10.16.200.0 - 10.16.203.255) | 1,024 |
 | 🔵&nbsp;&nbsp;Allocated | analytics-dashboards-prd-vpc | `10.17.0.0/18` (10.17.0.0 - 10.17.63.255) | 16,384 |
 | 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;analytics-dashboards-prd-data-eu-west-1a | `10.17.0.0/21` (10.17.0.0 - 10.17.7.255) | 2,048 |
 | 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;analytics-dashboards-prd-data-eu-west-1b | `10.17.8.0/21` (10.17.8.0 - 10.17.15.255) | 2,048 |

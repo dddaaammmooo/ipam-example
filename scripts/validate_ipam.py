@@ -9,8 +9,9 @@ pools.yaml
     network boundary (10.1.0.0/16, not 10.1.2.3/16)
   - every CIDR is private address space (RFC 1918)
   - no two pool CIDRs overlap
-  - pool IDs are lowercase kebab-case (they are used as Terraform inputs
-    and as file names under .github/ipam/pools/)
+  - pool IDs follow <scope>-<kind>-<N>, e.g. eu-west-1-prd-1, global-dev-1
+    (scope: AWS region or "global"; kind: prd|stg|dev|shared|overlay|reserved;
+    N: 1, 2, ... a new pool is opened when the previous one is full)
 
 allocations.yaml
   - every allocation belongs to a pool that exists
@@ -36,7 +37,7 @@ RFC1918 = [
     ipaddress.ip_network("172.16.0.0/12"),
     ipaddress.ip_network("192.168.0.0/16"),
 ]
-POOL_ID = re.compile(r"^[a-z0-9]+(-[a-z0-9]+)*$")
+POOL_ID = re.compile(r"^(global|[a-z]{2}(-[a-z]+)+-[0-9])-(prd|stg|dev|shared|overlay|reserved)-[1-9][0-9]*$")
 
 
 def load(path):
@@ -63,7 +64,7 @@ def check_pools(doc, errors):
     for pool_id, pool in pools.items():
         where = f"pools.yaml: pool {pool_id!r}"
         if not POOL_ID.match(str(pool_id)):
-            errors.append(f"{where}: id must be lowercase kebab-case")
+            errors.append(f"{where}: id must match <scope>-<kind>-<N>, e.g. eu-west-1-prd-1 or global-dev-1")
         cidrs = (pool or {}).get("cidr") or []
         if not cidrs:
             errors.append(f"{where}: has no CIDRs")

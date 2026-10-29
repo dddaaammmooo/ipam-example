@@ -1,4 +1,4 @@
-# prod-ap-southeast-2
+# global-reserved-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,23 +8,23 @@
 
 [← Back to Overview](../README.md)
 
-*Production VPCs in ap-southeast-2*
+> 🟠 **RESERVED** — This pool is reserved for future use. Allocations are not permitted.
+
+*Held back for acquisitions and future regions*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | prod-ap-southeast-2 |
-| CIDR | `10.32.0.0/12` (10.32.0.0 - 10.47.255.255) |
-| Total Addresses | 1,048,576 |
-| Allocated | 0/1,048,576 (0.0%) |
-| Environment | production |
-| Owner | platform |
-| Region | ap-southeast-2 |
+| Pool Name | global-reserved-1 |
+| CIDR | `10.128.0.0/9` (10.128.0.0 - 10.255.255.255) |
+| Total Addresses | 8,388,608 |
+| Allocated | 0/8,388,608 (0.0%) |
+| Owner | network |
 
 ## Allocations
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| ⚪&nbsp;&nbsp;Available | — | `10.32.0.0/12` (10.32.0.0 - 10.47.255.255) | 1,048,576 |
+| ⚪&nbsp;&nbsp;Available | — | `10.128.0.0/9` (10.128.0.0 - 10.255.255.255) | 8,388,608 |
 

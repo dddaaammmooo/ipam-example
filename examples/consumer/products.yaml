@@ -5,6 +5,11 @@
 # bigger block (/16 = 65,536 addresses, /20 = 4,096, /24 = 256, /28 = 16).
 #
 #   vpc:      size of the VPC block taken from the environment's pool
+#   pools:    pool each environment's VPC is allocated from. Pinned per
+#             product: changing it replaces the VPC allocation (new CIDR),
+#             so a product stays on the pool it started in. The first seven
+#             products filled eu-west-1-prd-1 exactly (1,048,576 addresses);
+#             every product onboarded after them uses eu-west-1-prd-2.
 #   accounts: AWS account that runs this product in each environment; the
 #             VPC and subnet CIDRs are published to SSM Parameter Store
 #             there (ssm.tf). The IDs below are FAKE placeholders.
@@ -32,6 +37,7 @@ products:
     description: Live and on-demand video origin, packagers and edge caches
     vpc:     { prd: 14, stg: 16, dev: 17 }
     accounts: { prd: "100000010301", stg: "100000010201", dev: "100000010101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 16, stg: 18, dev: 19 }   # prd: 3 x 65,536
       public:  { prd: 20, stg: 22, dev: 23 }
@@ -43,6 +49,7 @@ products:
     description: GPU training clusters and feature store
     vpc:     { prd: 14, stg: 16, dev: 17 }
     accounts: { prd: "100000020301", stg: "100000020201", dev: "100000020101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 16, stg: 18, dev: 19 }   # prd: 3 x 65,536
       data:    { prd: 18, stg: 20, dev: 21 }
@@ -54,6 +61,7 @@ products:
     description: Batch transcoding farm for uploaded video
     vpc:     { prd: 15, stg: 17, dev: 18 }
     accounts: { prd: "100000030301", stg: "100000030201", dev: "100000030101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 17, stg: 19, dev: 20 }
       data:    { prd: 20, stg: 22, dev: 23 }
@@ -65,6 +73,7 @@ products:
     description: Spark/EMR jobs and the lakehouse query engines
     vpc:     { prd: 15, stg: 17, dev: 18 }
     accounts: { prd: "100000040301", stg: "100000040201", dev: "100000040101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       data:    { prd: 17, stg: 19, dev: 20 }
       compute: { prd: 19, stg: 21, dev: 22 }
@@ -75,6 +84,7 @@ products:
     description: Indexers and search clusters
     vpc:     { prd: 15, stg: 17, dev: 18 }
     accounts: { prd: "100000050301", stg: "100000050201", dev: "100000050101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 18, stg: 20, dev: 21 }
       data:    { prd: 18, stg: 20, dev: 21 }
@@ -86,6 +96,7 @@ products:
     description: WebSocket gateways and pub/sub brokers
     vpc:     { prd: 16, stg: 18, dev: 19 }
     accounts: { prd: "100000060301", stg: "100000060201", dev: "100000060101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 18, stg: 20, dev: 21 }
       data:    { prd: 21, stg: 23, dev: 24 }
@@ -97,6 +108,7 @@ products:
     description: Customer-facing website and its edge
     vpc:     { prd: 16, stg: 18, dev: 19 }
     accounts: { prd: "100000070301", stg: "100000070201", dev: "100000070101" }
+    pools:    { prd: eu-west-1-prd-1, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 19, stg: 21, dev: 22 }
       public:  { prd: 20, stg: 22, dev: 23 }
@@ -108,6 +120,7 @@ products:
     description: Log ingestion and long-term archive
     vpc:     { prd: 16, stg: 18, dev: 19 }
     accounts: { prd: "100000080301", stg: "100000080201", dev: "100000080101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       data:    { prd: 18, stg: 20, dev: 21 }
       compute: { prd: 22, stg: 24, dev: 25 }
@@ -119,6 +132,7 @@ products:
     description: Build runners and deployment automation
     vpc:     { prd: 18, stg: 20, dev: 21 }
     accounts: { prd: "100000090301", stg: "100000090201", dev: "100000090101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 20, stg: 22, dev: 23 }
       data:    { prd: 24, stg: 26, dev: 27 }
@@ -129,6 +143,7 @@ products:
     description: Card and wallet payment processing
     vpc:     { prd: 18, stg: 20, dev: 21 }
     accounts: { prd: "100000100301", stg: "100000100201", dev: "100000100101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 21, stg: 23, dev: 24 }
       data:    { prd: 22, stg: 24, dev: 25 }
@@ -140,6 +155,7 @@ products:
     description: Public REST and GraphQL APIs
     vpc:     { prd: 18, stg: 20, dev: 21 }
     accounts: { prd: "100000110301", stg: "100000110201", dev: "100000110101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 21, stg: 23, dev: 24 }
       public:  { prd: 23, stg: 25, dev: 26 }
@@ -151,6 +167,7 @@ products:
     description: BI dashboards and their query caches
     vpc:     { prd: 18, stg: 20, dev: 21 }
     accounts: { prd: "100000120301", stg: "100000120201", dev: "100000120101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       data:    { prd: 21, stg: 23, dev: 24 }
       compute: { prd: 22, stg: 24, dev: 25 }
@@ -161,6 +178,7 @@ products:
     description: Backend-for-frontend services for the mobile apps
     vpc:     { prd: 18, stg: 20, dev: 21 }
     accounts: { prd: "100000130301", stg: "100000130201", dev: "100000130101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 21, stg: 23, dev: 24 }
       data:    { prd: 23, stg: 25, dev: 26 }
@@ -173,6 +191,7 @@ products:
     description: Sign-in, sessions and token service
     vpc:     { prd: 20, stg: 22, dev: 23 }
     accounts: { prd: "100000140301", stg: "100000140201", dev: "100000140101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 23, stg: 25, dev: 26 }
       data:    { prd: 24, stg: 26, dev: 27 }
@@ -184,6 +203,7 @@ products:
     description: Transactional email senders and bounce handling
     vpc:     { prd: 21, stg: 23, dev: 24 }
     accounts: { prd: "100000150301", stg: "100000150201", dev: "100000150101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 24, stg: 26, dev: 27 }
       public:  { prd: 25, stg: 27, dev: 28 }
@@ -194,6 +214,7 @@ products:
     description: Push and SMS notifications
     vpc:     { prd: 21, stg: 23, dev: 24 }
     accounts: { prd: "100000160301", stg: "100000160201", dev: "100000160101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 24, stg: 26, dev: 27 }
       data:    { prd: 25, stg: 27, dev: 28 }
@@ -204,6 +225,7 @@ products:
     description: Feature flag evaluation service
     vpc:     { prd: 22, stg: 24, dev: 25 }
     accounts: { prd: "100000170301", stg: "100000170201", dev: "100000170101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 25, stg: 27, dev: 28 }
       data:    { prd: 26, stg: 28, dev: 28 }
@@ -215,6 +237,7 @@ products:
     description: Ledger and month-end reporting jobs
     vpc:     { prd: 23, stg: 24, dev: 25 }
     accounts: { prd: "100000180301", stg: "100000180201", dev: "100000180101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 26, stg: 27, dev: 28 }
       data:    { prd: 27, stg: 28, dev: 28 }
@@ -225,6 +248,7 @@ products:
     description: Internal HR self-service portal
     vpc:     { prd: 24, stg: 25, dev: 25 }
     accounts: { prd: "100000190301", stg: "100000190201", dev: "100000190101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       compute: { prd: 27, stg: 28, dev: 28 }
       data:    { prd: 28, stg: 28, dev: 28 }
@@ -235,6 +259,7 @@ products:
     description: Public status page
     vpc:     { prd: 24, stg: 25, dev: 25 }
     accounts: { prd: "100000200301", stg: "100000200201", dev: "100000200101" }
+    pools:    { prd: eu-west-1-prd-2, stg: eu-west-1-stg-1, dev: global-dev-1 }
     subnets:
       public:  { prd: 27, stg: 28, dev: 28 }
       compute: { prd: 28, stg: 28, dev: 28 }

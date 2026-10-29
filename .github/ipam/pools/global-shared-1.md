@@ -1,4 +1,4 @@
-# reserved-future
+# global-shared-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,23 +8,22 @@
 
 [← Back to Overview](../README.md)
 
-> 🟠 **RESERVED** — This pool is reserved for future use. Allocations are not permitted.
-
-*Held back for acquisitions and future regions*
+*Transit gateway, VPN, DNS resolvers, inspection VPCs*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | reserved-future |
-| CIDR | `10.128.0.0/9` (10.128.0.0 - 10.255.255.255) |
-| Total Addresses | 8,388,608 |
-| Allocated | 0/8,388,608 (0.0%) |
+| Pool Name | global-shared-1 |
+| CIDR | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) |
+| Total Addresses | 65,536 |
+| Allocated | 0/65,536 (0.0%) |
+| Environment | shared |
 | Owner | network |
 
 ## Allocations
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| ⚪&nbsp;&nbsp;Available | — | `10.128.0.0/9` (10.128.0.0 - 10.255.255.255) | 8,388,608 |
+| ⚪&nbsp;&nbsp;Available | — | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) | 65,536 |
 

@@ -1,4 +1,4 @@
-# shared-services
+# global-reserved-2
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,22 +8,23 @@
 
 [← Back to Overview](../README.md)
 
-*Transit gateway, VPN, DNS resolvers, inspection VPCs*
+> 🟠 **RESERVED** — This pool is reserved for future use. Allocations are not permitted.
+
+*Never allocate: overlaps typical home/office LANs*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | shared-services |
-| CIDR | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) |
+| Pool Name | global-reserved-2 |
+| CIDR | `192.168.0.0/16` (192.168.0.0 - 192.168.255.255) |
 | Total Addresses | 65,536 |
 | Allocated | 0/65,536 (0.0%) |
-| Environment | shared |
 | Owner | network |
 
 ## Allocations
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| ⚪&nbsp;&nbsp;Available | — | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) | 65,536 |
+| ⚪&nbsp;&nbsp;Available | — | `192.168.0.0/16` (192.168.0.0 - 192.168.255.255) | 65,536 |
 

@@ -1,4 +1,4 @@
-# staging-ap-southeast-2
+# global-overlay-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,23 +8,22 @@
 
 [← Back to Overview](../README.md)
 
-*Staging VPCs in ap-southeast-2*
+*Kubernetes pod and service ranges that never leave the cluster*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | staging-ap-southeast-2 |
-| CIDR | `10.56.0.0/13` (10.56.0.0 - 10.63.255.255) |
+| Pool Name | global-overlay-1 |
+| CIDR | `172.16.0.0/13` (172.16.0.0 - 172.23.255.255) |
 | Total Addresses | 524,288 |
 | Allocated | 0/524,288 (0.0%) |
-| Environment | staging |
+| Environment | any |
 | Owner | platform |
-| Region | ap-southeast-2 |
 
 ## Allocations
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| ⚪&nbsp;&nbsp;Available | — | `10.56.0.0/13` (10.56.0.0 - 10.63.255.255) | 524,288 |
+| ⚪&nbsp;&nbsp;Available | — | `172.16.0.0/13` (172.16.0.0 - 172.23.255.255) | 524,288 |
 

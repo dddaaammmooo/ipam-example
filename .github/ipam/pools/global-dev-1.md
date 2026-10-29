@@ -1,4 +1,4 @@
-# development
+# global-dev-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,17 +8,17 @@
 
 [← Back to Overview](../README.md)
 
-*Development and sandbox VPCs, all regions (not split by region)*
+*dev and sandbox VPCs, all regions*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | development |
+| Pool Name | global-dev-1 |
 | CIDR | `10.64.0.0/12` (10.64.0.0 - 10.79.255.255) |
 | Total Addresses | 1,048,576 |
 | Allocated | 151,040/1,048,576 (14.4%) |
-| Environment | development |
+| Environment | dev |
 | Owner | platform |
 
 ## Allocations

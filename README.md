@@ -40,7 +40,7 @@ examples/consumer/    20 products x 3 environments: VPCs, subnets, and SSM publi
                                      └─▶ .github/README.md + .github/ipam/pools/*.md  (dashboard)
 ```
 
-- **Pools** are the address plan, e.g. `development = 10.48.0.0/12`. They change rarely and always by pull request.
+- **Pools** are the address plan, e.g. `global-dev-1 = 10.64.0.0/12`. They change rarely and always by pull request.
 - **Allocations** are created by `github-ipam_allocation` resources in any Terraform stack. The provider:
   1. reads `allocations.yaml` and its blob SHA,
   2. finds the next free, aligned block,
@@ -57,17 +57,50 @@ examples/consumer/    20 products x 3 environments: VPCs, subnets, and SSM publi
 
 | Pool | CIDR | Notes |
 | --- | --- | --- |
-| `prod-eu-west-1` | 10.0.0.0/11 | prd VPCs of `examples/consumer` |
-| `prod-ap-southeast-2` | 10.32.0.0/12 | |
-| `staging-eu-west-1` | 10.48.0.0/13 | stg VPCs of `examples/consumer` |
-| `staging-ap-southeast-2` | 10.56.0.0/13 | |
-| `development` | 10.64.0.0/12 | dev VPCs, all regions (deliberately not split by region) |
-| `shared-services` | 10.80.0.0/16 | transit, VPN, DNS |
-| `container-overlay` | 172.16.0.0/13, 172.24.0.0/14 | two CIDRs: filled in order |
-| `reserved-future` | 10.128.0.0/9 | `reserved: true`, so no allocations |
-| `reserved-lan` | 192.168.0.0/16 | `reserved: true`, to avoid clashing with home/office LANs |
+| `eu-west-1-prd-1` | 10.0.0.0/12 | **full** (100%): first 7 products' prd VPCs |
+| `eu-west-1-prd-2` | 10.16.0.0/12 | opened when `-1` filled: every later product's prd VPC |
+| `ap-southeast-2-prd-1` | 10.32.0.0/12 | |
+| `eu-west-1-stg-1` | 10.48.0.0/13 | stg VPCs of `examples/consumer` |
+| `ap-southeast-2-stg-1` | 10.56.0.0/13 | |
+| `global-dev-1` | 10.64.0.0/12 | dev VPCs, all regions (deliberately not split by region) |
+| `global-shared-1` | 10.80.0.0/16 | transit, VPN, DNS |
+| `global-overlay-1` | 172.16.0.0/13, 172.24.0.0/14 | two CIDRs: filled in order |
+| `global-reserved-1` | 10.128.0.0/9 | `reserved: true`, so no allocations |
+| `global-reserved-2` | 192.168.0.0/16 | `reserved: true`, to avoid clashing with home/office LANs |
 
 10.81.0.0 – 10.127.255.255 is left unassigned as headroom for new pools.
+
+### Pool naming
+
+Pool IDs follow `<scope>-<kind>-<N>`. CI rejects any other shape.
+
+| Part | Values |
+| --- | --- |
+| `scope` | an AWS region (`eu-west-1`), or `global` for pools not tied to one |
+| `kind` | `prd`, `stg`, `dev` for environments; `shared`, `overlay`, `reserved` for everything else |
+| `N` | `1`, `2`, … A new pool is opened when the previous one is full |
+
+### When a pool fills up
+
+`eu-west-1-prd-1` is completely full. When it filled, a new project asking it for a VPC failed at `tofu apply`, not
+at `plan`. Even the smallest block fails:
+
+```
+Error: Failed to allocate CIDR
+  allocation from pool eu-west-1-prd-1 failed: no available /28 block in pool: 10.0.0.0/12: no available /28 block in 10.0.0.0/12
+```
+
+To make room, open the next pool by PR. Here that's `eu-west-1-prd-2`, at 10.16.0.0/12. It sits right after `-1`,
+so all of eu-west-1 prd still summarises as one route, 10.0.0.0/11. Then point new products at the new pool.
+
+**Every stack pins the pool for each VPC** (`pools:` in
+[`products.yaml`](examples/consumer/products.yaml)). Changing an existing allocation's `pool_id` replaces it with a new
+CIDR, which in AWS means rebuilding the VPC. So products already on `-1` stay there, and only new products name `-2`.
+Never repoint a shared default from `-1` to `-2`.
+
+An alternative to a new pool is appending a CIDR to the full pool's `cidr` list; the provider fills a pool's CIDRs in
+order. But the generated dashboard counts a multi-CIDR pool's allocations against every CIDR in it, so its numbers go
+wrong (see `global-overlay-1`). A new pool keeps the dashboard accurate and makes the overflow visible.
 
 ## Set up your own
 
@@ -220,7 +253,7 @@ Things to know:
 | Preview the next free block | `data "github-ipam_next_available"` with `pool_id` or `parent_cidr` |
 | Look up a block someone else owns | `data "github-ipam_allocation"` by `name` or `id` |
 | Add a pool | PR to `config/pools.yaml` |
-| Grow a pool | PR appending another CIDR to its `cidr` list |
+| Pool full | PR adding the next pool (`…-2`), then pin new products to it; see [When a pool fills up](#when-a-pool-fills-up) |
 | Retire a block | Remove the resource and apply. Children must go first; the provider refuses to delete a parent with children |
 | Adopt an existing block | `tofu import github-ipam_allocation.x <uuid>` (the id from `allocations.yaml`) |
 
