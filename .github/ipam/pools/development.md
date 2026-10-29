@@ -8,7 +8,7 @@
 
 [← Back to Overview](../README.md)
 
-*Development and sandbox VPCs, all regions*
+*Development and sandbox VPCs, all regions (not split by region)*
 
 ## Overview
 

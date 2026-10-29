@@ -59,8 +59,9 @@ examples/consumer/    20 products x 3 environments: VPCs, subnets, and SSM publi
 | --- | --- | --- |
 | `prod-eu-west-1` | 10.0.0.0/11 | prd VPCs of `examples/consumer` |
 | `prod-ap-southeast-2` | 10.32.0.0/12 | |
-| `staging` | 10.48.0.0/12 | stg VPCs |
-| `development` | 10.64.0.0/12 | dev VPCs |
+| `staging-eu-west-1` | 10.48.0.0/13 | stg VPCs of `examples/consumer` |
+| `staging-ap-southeast-2` | 10.56.0.0/13 | |
+| `development` | 10.64.0.0/12 | dev VPCs, all regions (deliberately not split by region) |
 | `shared-services` | 10.80.0.0/16 | transit, VPN, DNS |
 | `container-overlay` | 172.16.0.0/13, 172.24.0.0/14 | two CIDRs: filled in order |
 | `reserved-future` | 10.128.0.0/9 | `reserved: true`, so no allocations |

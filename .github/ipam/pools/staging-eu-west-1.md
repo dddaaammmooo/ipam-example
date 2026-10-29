@@ -1,4 +1,4 @@
-# staging
+# staging-eu-west-1
 
 > ⚠️&nbsp;&nbsp;**IMPORTANT**&nbsp;&nbsp;⚠️<br>
 >
@@ -8,18 +8,19 @@
 
 [← Back to Overview](../README.md)
 
-*Staging VPCs, all regions*
+*Staging VPCs in eu-west-1*
 
 ## Overview
 
 | Property | Value |
 |:---------|:------|
-| Pool Name | staging |
-| CIDR | `10.48.0.0/12` (10.48.0.0 - 10.63.255.255) |
-| Total Addresses | 1,048,576 |
-| Allocated | 301,824/1,048,576 (28.8%) |
+| Pool Name | staging-eu-west-1 |
+| CIDR | `10.48.0.0/13` (10.48.0.0 - 10.55.255.255) |
+| Total Addresses | 524,288 |
+| Allocated | 301,824/524,288 (57.6%) |
 | Environment | staging |
 | Owner | platform |
+| Region | eu-west-1 |
 
 ## Allocations
 
@@ -192,5 +193,5 @@
 | 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;status-page-stg-public-eu-west-1a | `10.52.154.176/28` (10.52.154.176 - 10.52.154.191) | 16 |
 | 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;status-page-stg-public-eu-west-1b | `10.52.154.192/28` (10.52.154.192 - 10.52.154.207) | 16 |
 | 🔵&nbsp;&nbsp;Allocated | &nbsp;&nbsp;└&nbsp;status-page-stg-public-eu-west-1c | `10.52.154.208/28` (10.52.154.208 - 10.52.154.223) | 16 |
-| ⚪&nbsp;&nbsp;Available | — | `10.52.155.0—10.63.255.255` (10.52.155.0 - 10.63.255.255) | 746,752 |
+| ⚪&nbsp;&nbsp;Available | — | `10.52.155.0—10.55.255.255` (10.52.155.0 - 10.55.255.255) | 222,464 |
 

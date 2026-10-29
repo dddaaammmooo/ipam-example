@@ -18,7 +18,8 @@
 |:-------|:----------|:-----|-----:|:----------|:------------|
 | 🔵&nbsp;&nbsp;Allocated | [prod-eu-west-1](ipam/pools/prod-eu-west-1.md) | `10.0.0.0/11` (10.0.0.0 - 10.31.255.255) | 2,097,152 | 1,206,272/2,097,152 (57.5%) | █████░░░░░ |
 | 🔵&nbsp;&nbsp;Allocated | [prod-ap-southeast-2](ipam/pools/prod-ap-southeast-2.md) | `10.32.0.0/12` (10.32.0.0 - 10.47.255.255) | 1,048,576 | 0/1,048,576 (0.0%) | ░░░░░░░░░░ |
-| 🔵&nbsp;&nbsp;Allocated | [staging](ipam/pools/staging.md) | `10.48.0.0/12` (10.48.0.0 - 10.63.255.255) | 1,048,576 | 301,824/1,048,576 (28.8%) | ██░░░░░░░░ |
+| 🔵&nbsp;&nbsp;Allocated | [staging-eu-west-1](ipam/pools/staging-eu-west-1.md) | `10.48.0.0/13` (10.48.0.0 - 10.55.255.255) | 524,288 | 301,824/524,288 (57.6%) | █████░░░░░ |
+| 🔵&nbsp;&nbsp;Allocated | [staging-ap-southeast-2](ipam/pools/staging-ap-southeast-2.md) | `10.56.0.0/13` (10.56.0.0 - 10.63.255.255) | 524,288 | 0/524,288 (0.0%) | ░░░░░░░░░░ |
 | 🔵&nbsp;&nbsp;Allocated | [development](ipam/pools/development.md) | `10.64.0.0/12` (10.64.0.0 - 10.79.255.255) | 1,048,576 | 151,040/1,048,576 (14.4%) | █░░░░░░░░░ |
 | 🔵&nbsp;&nbsp;Allocated | [shared-services](ipam/pools/shared-services.md) | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) | 65,536 | 0/65,536 (0.0%) | ░░░░░░░░░░ |
 | ⚪&nbsp;&nbsp;Available | — | `10.81.0.0—10.127.255.255` (10.81.0.0 - 10.127.255.255) | 3,080,192 | — | — |
