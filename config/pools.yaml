@@ -1,0 +1,80 @@
+# IPAM pool definitions (source of truth for address space).
+#
+# Read by the easytofu/github-ipam provider. Changes go through a pull
+# request reviewed by CODEOWNERS; CI checks every CIDR is valid, private
+# (RFC 1918) and does not overlap another pool.
+#
+# Layout of 10.0.0.0/8:
+#   10.0.0.0/12   prod-eu-west-1        (1,048,576 addresses)
+#   10.16.0.0/12  prod-ap-southeast-2
+#   10.32.0.0/12  staging
+#   10.48.0.0/12  development
+#   10.64.0.0/16  shared-services
+#   10.65.0.0 - 10.127.255.255  unassigned headroom
+#   10.128.0.0/9  reserved-future       (no allocations allowed)
+#
+# Pool IDs are referenced by Terraform as `pool_id`, so treat them as
+# permanent: renaming a pool orphans its allocations.
+
+pools:
+  prod-eu-west-1:
+    cidr: ["10.0.0.0/12"]
+    description: "Production VPCs in eu-west-1"
+    metadata:
+      environment: production
+      region: eu-west-1
+      owner: platform
+
+  prod-ap-southeast-2:
+    cidr: ["10.16.0.0/12"]
+    description: "Production VPCs in ap-southeast-2"
+    metadata:
+      environment: production
+      region: ap-southeast-2
+      owner: platform
+
+  staging:
+    cidr: ["10.32.0.0/12"]
+    description: "Staging VPCs, all regions"
+    metadata:
+      environment: staging
+      owner: platform
+
+  development:
+    cidr: ["10.48.0.0/12"]
+    description: "Development and sandbox VPCs, all regions"
+    metadata:
+      environment: development
+      owner: platform
+
+  shared-services:
+    cidr: ["10.64.0.0/16"]
+    description: "Transit gateway, VPN, DNS resolvers, inspection VPCs"
+    metadata:
+      environment: shared
+      owner: network
+
+  # A pool may hold several CIDRs; allocations fill the first one before
+  # moving on. Here the 172.16/12 range is kept for container overlays.
+  container-overlay:
+    cidr: ["172.16.0.0/13", "172.24.0.0/14"]
+    description: "Kubernetes pod and service ranges that never leave the cluster"
+    metadata:
+      environment: any
+      owner: platform
+
+  reserved-future:
+    cidr: ["10.128.0.0/9"]
+    description: "Held back for acquisitions and future regions"
+    reserved: true
+    metadata:
+      owner: network
+
+  # Commonly used by home routers and office LANs. Reserved so no VPC is
+  # ever allocated here and clashes with a VPN client's local network.
+  reserved-lan:
+    cidr: ["192.168.0.0/16"]
+    description: "Never allocate: overlaps typical home/office LANs"
+    reserved: true
+    metadata:
+      owner: network

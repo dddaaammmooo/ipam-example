@@ -1,0 +1,53 @@
+name: validate
+
+# Runs on every PR (pool changes are reviewed here) and on every push to
+# main (the provider commits allocations straight to main, so this is the
+# integrity check for its writes).
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ipam:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install pyyaml==6.0.2
+
+      - name: Validate pools and allocations
+        run: python scripts/validate_ipam.py
+
+      # allocations.yaml belongs to the provider. A PR that edits it by hand
+      # can silently break Terraform state, so flag it loudly.
+      - name: Block hand edits to allocations.yaml
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch --no-tags --depth=1 origin "${{ github.base_ref }}"
+          if git diff --name-only "origin/${{ github.base_ref }}" HEAD | grep -qx 'config/allocations.yaml'; then
+            echo "::error file=config/allocations.yaml::allocations.yaml is managed by the github-ipam provider. Change allocations with Terraform, not a PR. Add the 'ipam-manual-fix' label to override."
+            if ! ${{ contains(github.event.pull_request.labels.*.name, 'ipam-manual-fix') }}; then
+              exit 1
+            fi
+          fi
+
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: opentofu/setup-opentofu@v1
+      - name: Validate the consumer example
+        working-directory: examples/consumer
+        run: |
+          tofu fmt -check -recursive
+          tofu init -backend=false -input=false
+          tofu validate

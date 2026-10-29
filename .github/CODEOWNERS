@@ -1,0 +1,10 @@
+# Address space changes need a network owner's review.
+/config/pools.yaml        @dddaaammmooo
+
+# Written by the provider through the GitHub API, not by people. A PR that
+# touches it is almost always a mistake, so make it need an explicit owner.
+/config/allocations.yaml  @dddaaammmooo
+
+# CI and repo policy.
+/.github/                 @dddaaammmooo
+/scripts/                 @dddaaammmooo
