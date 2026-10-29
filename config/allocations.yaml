@@ -1,2 +1,656 @@
 version: "1.0"
-allocations: {}
+allocations:
+    container-overlay:
+        - cidr: 172.16.0.0/16
+          id: 1a732328-8d47-4c3d-aff4-8fdea87dc353
+          name: eks-prod-euw1-pods
+          metadata:
+            cluster: eks-prod-euw1
+            purpose: pod CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 172.17.0.0/20
+          id: 60e22d49-7552-4fac-8b93-58e6d77e158c
+          name: eks-prod-euw1-services
+          metadata:
+            cluster: eks-prod-euw1
+            purpose: service CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 172.18.0.0/16
+          id: 6365fc8e-d87d-41b7-ad8c-ad7e433dc33a
+          name: eks-prod-apse2-pods
+          metadata:
+            cluster: eks-prod-apse2
+            purpose: pod CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 172.17.16.0/20
+          id: cb4adeff-0c89-4d39-85f0-edde4cc785fe
+          name: eks-prod-apse2-services
+          metadata:
+            cluster: eks-prod-apse2
+            purpose: service CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 172.19.0.0/16
+          id: 60831e15-2ecc-4937-8f4a-63ccffe070ad
+          name: eks-staging-pods
+          metadata:
+            cluster: eks-staging
+            purpose: pod CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 172.17.32.0/20
+          id: b702ba99-d7e6-45d2-8069-2a6b94f191e6
+          name: eks-staging-services
+          metadata:
+            cluster: eks-staging
+            purpose: service CIDR
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+    development:
+        - cidr: 10.48.0.0/18
+          id: bbffa0d8-d8b2-4c9a-804c-45e77ad2b0b8
+          name: checkout-dev-vpc
+          metadata:
+            environment: development
+            purpose: vpc
+            stack: infra-checkout//dev
+            team: checkout
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.0.0/21
+          id: 0a1574ac-5380-461b-82f8-4f2fda283486
+          name: checkout-dev-private-eu-west-1a
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.8.0/21
+          id: 475fd526-b0bb-4479-ad00-687aaca52ebf
+          name: checkout-dev-private-eu-west-1b
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.16.0/21
+          id: 2218d1c3-0686-403c-9af3-8dba04ed0fdd
+          name: checkout-dev-private-eu-west-1c
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.24.0/24
+          id: 76d30a61-d361-4fc3-906e-83bc718c65b7
+          name: checkout-dev-public-eu-west-1a
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.25.0/24
+          id: d78a7925-c8b4-4609-af00-23f4c2329a8c
+          name: checkout-dev-public-eu-west-1b
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.48.26.0/24
+          id: 676cb1e1-38d3-4edc-a712-d1498fa46df2
+          name: checkout-dev-public-eu-west-1c
+          parent_cidr: 10.48.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.49.0.0/16
+          id: 3b52536b-f3bc-4238-8018-1813658ac3f8
+          name: sandboxes-dev
+          metadata:
+            purpose: per-engineer sandbox VPCs
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.49.0.0/22
+          id: ccea0bed-dac7-49e3-83c0-548531a8ef2f
+          name: sandbox-01
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            purpose: sandbox
+            ttl: 30d
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.49.4.0/22
+          id: 8fb3ed58-af84-4c87-9a68-1fb39d99d537
+          name: sandbox-02
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            purpose: sandbox
+            ttl: 30d
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.49.8.0/22
+          id: 9e45ca1e-2599-44de-8188-75cf03c34cd2
+          name: sandbox-03
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            purpose: sandbox
+            ttl: 30d
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.49.12.0/22
+          id: 76b6a38f-404c-4612-ab1c-12a0d250f573
+          name: sandbox-04
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            purpose: sandbox
+            ttl: 30d
+          created_at: "2026-10-29T19:52:33Z"
+    prod-ap-southeast-2:
+        - cidr: 10.16.0.0/16
+          id: dd918a40-1db9-4937-995e-2351065a308a
+          name: payments-prod-apse2-vpc
+          metadata:
+            environment: production
+            purpose: vpc
+            stack: infra-payments//prod/ap-southeast-2
+            team: payments
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.0.0/20
+          id: 3ac1fba5-67cb-4a54-96bf-82e8afa6ce8a
+          name: payments-prod-apse2-private-ap-southeast-2a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.16.0/20
+          id: e366cfd2-37e4-4f4b-9fb0-48ac685f3ae5
+          name: payments-prod-apse2-private-ap-southeast-2b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.32.0/20
+          id: 1e65a495-7aeb-4a91-8971-5da9178adca1
+          name: payments-prod-apse2-private-ap-southeast-2c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.48.0/24
+          id: eb8769d4-0468-44f1-a62c-5a932611d0c7
+          name: payments-prod-apse2-public-ap-southeast-2a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.49.0/24
+          id: 5fc673bb-ba7a-495d-b88d-83c482aecc1e
+          name: payments-prod-apse2-public-ap-southeast-2b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.50.0/24
+          id: 08a9148f-30b5-42a9-a1a2-3da8750599b2
+          name: payments-prod-apse2-public-ap-southeast-2c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.51.0/24
+          id: 61e83c7f-49bf-4f58-8b7e-ec9604c14cc2
+          name: payments-prod-apse2-data-ap-southeast-2a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2a
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.52.0/24
+          id: 7fa02ec5-3673-4b43-935c-c36502c32625
+          name: payments-prod-apse2-data-ap-southeast-2b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2b
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.16.53.0/24
+          id: f73fac37-4382-4f6d-b8ef-5df420390fbc
+          name: payments-prod-apse2-data-ap-southeast-2c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: ap-southeast-2c
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.0.0/16
+          id: 7832bef2-8dc5-4649-820b-0dc1a6539378
+          name: platform-eks-prod-apse2-vpc
+          metadata:
+            environment: production
+            purpose: vpc
+            stack: infra-platform//eks/prod-apse2
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.0.0/19
+          id: 667bc1f9-9b7f-4094-8df7-fb8d6e506f13
+          name: platform-eks-prod-apse2-private-ap-southeast-2a
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.32.0/19
+          id: 233efaf7-10c3-4b23-b943-6c0d8842de0e
+          name: platform-eks-prod-apse2-private-ap-southeast-2b
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.64.0/19
+          id: 2bc4e1a0-0ca6-4b67-95f8-6423897061e5
+          name: platform-eks-prod-apse2-private-ap-southeast-2c
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.96.0/24
+          id: 02f52a04-01ea-4d24-982a-9d71eba43010
+          name: platform-eks-prod-apse2-public-ap-southeast-2a
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.97.0/24
+          id: 49898861-ce0f-4258-bcd5-a0f2daf03fb9
+          name: platform-eks-prod-apse2-public-ap-southeast-2b
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.17.98.0/24
+          id: 5eec7f1b-2bdd-4769-9a8e-157fa5505eb7
+          name: platform-eks-prod-apse2-public-ap-southeast-2c
+          parent_cidr: 10.17.0.0/16
+          metadata:
+            az: ap-southeast-2c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+    prod-eu-west-1:
+        - cidr: 10.0.0.0/16
+          id: fc197613-0617-436d-83a8-260fb1b1c8b9
+          name: payments-prod-euw1-vpc
+          metadata:
+            environment: production
+            purpose: vpc
+            stack: infra-payments//prod/eu-west-1
+            team: payments
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.0.0/20
+          id: 47587d8e-b14e-43a3-94f6-502b1f8ed40b
+          name: payments-prod-euw1-private-eu-west-1a
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.16.0/20
+          id: 45ba8af9-b62d-4572-acb3-677dbb0b7cda
+          name: payments-prod-euw1-private-eu-west-1b
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.32.0/20
+          id: 3eb2922e-5ce7-4829-bc66-7d4af88c1f92
+          name: payments-prod-euw1-private-eu-west-1c
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.48.0/24
+          id: 9525018c-849e-4325-93b0-8663a5252bf6
+          name: payments-prod-euw1-public-eu-west-1a
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.49.0/24
+          id: 890518ff-b3aa-4c8d-a63d-30c635459048
+          name: payments-prod-euw1-public-eu-west-1b
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.50.0/24
+          id: 21eef8cd-2bcf-47f2-90e1-6144da4b9bd5
+          name: payments-prod-euw1-public-eu-west-1c
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.51.0/24
+          id: 16d6b86f-353a-4187-b34e-9aec3a62134d
+          name: payments-prod-euw1-data-eu-west-1a
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.52.0/24
+          id: 8d05fbfe-ade1-477a-9663-bbff1e8f42ae
+          name: payments-prod-euw1-data-eu-west-1b
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.0.53.0/24
+          id: f8c43536-595e-476a-934c-71fe56542765
+          name: payments-prod-euw1-data-eu-west-1c
+          parent_cidr: 10.0.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.1.0.0/16
+          id: bc0a81ed-9118-47de-844f-77fa0c3de1bf
+          name: payments-prod-euw1-vpc-growth
+          metadata:
+            purpose: future secondary CIDR for payments-prod-euw1-vpc
+            team: payments
+          created_at: "2026-10-29T19:52:33Z"
+          reserved: true
+          contiguous_with: 10.0.0.0/16
+        - cidr: 10.2.0.0/16
+          id: 3998c751-fe16-49c0-8471-281f48d09261
+          name: platform-eks-prod-euw1-vpc
+          metadata:
+            environment: production
+            purpose: vpc
+            stack: infra-platform//eks/prod-euw1
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.0.0/19
+          id: 946f50e7-0912-4c27-be41-bd82009810e1
+          name: platform-eks-prod-euw1-private-eu-west-1a
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.32.0/19
+          id: f6ee2d76-9231-4f8e-aabf-5847a4084a28
+          name: platform-eks-prod-euw1-private-eu-west-1b
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.64.0/19
+          id: 83bce4d5-02dc-4a22-891b-1a3671f93b2f
+          name: platform-eks-prod-euw1-private-eu-west-1c
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.96.0/24
+          id: eee19c71-ffe9-4fab-b095-06f6e39728d5
+          name: platform-eks-prod-euw1-public-eu-west-1a
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.97.0/24
+          id: c392e773-c37f-4142-b054-034702027cff
+          name: platform-eks-prod-euw1-public-eu-west-1b
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.2.98.0/24
+          id: d42a84f0-971b-4841-b494-7e79fc04472b
+          name: platform-eks-prod-euw1-public-eu-west-1c
+          parent_cidr: 10.2.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.3.0.0/18
+          id: 4e12a9d0-3846-4df3-815e-ec69cadc0439
+          name: data-warehouse-prod-euw1-vpc
+          metadata:
+            environment: production
+            purpose: vpc
+            stack: infra-data//warehouse/prod
+            team: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.3.0.0/21
+          id: 6ac2092a-f3cb-4e39-9147-4822358c6658
+          name: data-warehouse-prod-euw1-private-eu-west-1a
+          parent_cidr: 10.3.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.3.8.0/21
+          id: 93e566e1-bf5e-495b-bfd1-02b544319fda
+          name: data-warehouse-prod-euw1-private-eu-west-1b
+          parent_cidr: 10.3.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.3.16.0/21
+          id: ee084ab4-c572-4981-a98f-f9eee61c5cd4
+          name: data-warehouse-prod-euw1-private-eu-west-1c
+          parent_cidr: 10.3.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+    shared-services:
+        - cidr: 10.64.0.0/24
+          id: c522f50a-65fa-4c40-8c9e-5531abeffd2d
+          name: transit-gateway-euw1
+          metadata:
+            environment: shared
+            region: eu-west-1
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.64.1.0/26
+          id: d20fba99-23bb-4a1a-8889-0061291cdb17
+          name: dns-resolvers-euw1
+          metadata:
+            environment: shared
+            region: eu-west-1
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.64.16.0/20
+          id: 9c25541d-a3fb-4850-87c0-791003a08aee
+          name: vpn-clients
+          metadata:
+            environment: shared
+            purpose: client VPN pool
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.64.4.0/22
+          id: 6a33bf76-a1eb-400c-90c2-873ec6843181
+          name: inspection-vpc-euw1
+          metadata:
+            environment: shared
+            region: eu-west-1
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.64.8.0/22
+          id: 8a64ef01-8b77-4fd0-991c-127b2b3d3715
+          name: inspection-vpc-apse2
+          metadata:
+            environment: shared
+            region: ap-southeast-2
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.64.2.0/24
+          id: d4be1120-6076-4a31-a1e7-12518fd1db41
+          name: transit-gateway-apse2
+          metadata:
+            environment: shared
+            region: ap-southeast-2
+            team: network
+          created_at: "2026-10-29T19:52:33Z"
+    staging:
+        - cidr: 10.32.0.0/17
+          id: 7cb54533-c24b-4ba7-8f90-54fcc390d670
+          name: payments-staging-vpc
+          metadata:
+            environment: staging
+            purpose: vpc
+            stack: infra-payments//staging
+            team: payments
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.0.0/20
+          id: 00243ccd-cf26-4a2f-a085-ba8446b30d08
+          name: payments-staging-private-eu-west-1a
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.16.0/20
+          id: 39f85899-3537-4d2e-9a0b-855e3b5cf4e4
+          name: payments-staging-private-eu-west-1b
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.32.0/20
+          id: 87d2857f-a05b-45f7-9644-7ed4877608fd
+          name: payments-staging-private-eu-west-1c
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.48.0/24
+          id: ef60f1eb-9592-4c45-b10e-2f808044bafe
+          name: payments-staging-public-eu-west-1a
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.49.0/24
+          id: 121fb86d-2fd0-4c68-acf1-1d2edd022172
+          name: payments-staging-public-eu-west-1b
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.50.0/24
+          id: fdf2b854-3bdb-4379-94e0-b323a9d725d2
+          name: payments-staging-public-eu-west-1c
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.51.0/24
+          id: efc2d88e-7f6d-453b-924e-75cacb0308c1
+          name: payments-staging-data-eu-west-1a
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.52.0/24
+          id: ec9536cc-7098-4c83-8865-84a8d72d6b63
+          name: payments-staging-data-eu-west-1b
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.53.0/24
+          id: d149c0e5-df67-4e81-8a1b-b7c4cb3d3bb3
+          name: payments-staging-data-eu-west-1c
+          parent_cidr: 10.32.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.128.0/17
+          id: c9c015b2-3271-4d99-8c50-045cb92d6fcf
+          name: platform-eks-staging-vpc
+          metadata:
+            environment: staging
+            purpose: vpc
+            stack: infra-platform//eks/staging
+            team: platform
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.128.0/20
+          id: 7499bcf0-9ea9-410f-8363-13b9229e4417
+          name: platform-eks-staging-private-eu-west-1a
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.144.0/20
+          id: bc5ca9e2-b096-4b19-96b0-facc23070bf5
+          name: platform-eks-staging-private-eu-west-1b
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.160.0/20
+          id: 66292e9f-c088-46f6-9edd-ccd7c661f5cc
+          name: platform-eks-staging-private-eu-west-1c
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: private
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.176.0/24
+          id: 6de9de4a-7bb5-4561-8692-f92472f8d7e2
+          name: platform-eks-staging-public-eu-west-1a
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.177.0/24
+          id: 7e07eb16-c269-4845-ae21-c5b634d172c7
+          name: platform-eks-staging-public-eu-west-1b
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"
+        - cidr: 10.32.178.0/24
+          id: e15deccd-e8c8-4435-89e8-d4d10406c87f
+          name: platform-eks-staging-public-eu-west-1c
+          parent_cidr: 10.32.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T19:52:33Z"

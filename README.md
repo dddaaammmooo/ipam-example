@@ -5,8 +5,14 @@ IP address management where a GitHub repo is the source of truth and Terraform/O
 
 Copy this repo's layout to run IPAM for your own organisation.
 
-> After the first `apply`, the provider writes a generated dashboard to `.github/README.md`. GitHub shows that
-> file on the repo's front page in place of this one. This guide stays at [`README.md`](README.md).
+> The repo's front page is the provider's generated dashboard, [`.github/README.md`](.github/README.md). GitHub
+> shows that file in place of this guide, which stays at [`README.md`](README.md).
+>
+> **The allocations here are sample data.** They are 80 mock allocations for fictional teams, produced by running
+> the provider's own allocator and README generator (v0.0.21) against `config/pools.yaml`. So the CIDRs, the
+> `allocations.yaml` format and the dashboard are exactly what real `tofu apply` runs would produce. Delete them
+> (reset `allocations.yaml` to the empty database below and remove `.github/README.md` and `.github/ipam/`)
+> before using this repo for real.
 
 ## Layout
 
@@ -17,8 +23,8 @@ config/
 .github/
   CODEOWNERS          pools.yaml needs a network owner's review
   workflows/validate.yml
-  README.md           generated dashboard (appears after the first apply)
-  ipam/pools/*.md     generated page per pool (appears after the first apply)
+  README.md           generated dashboard (the provider rewrites it on every change)
+  ipam/pools/*.md     generated page per pool
 scripts/
   validate_ipam.py    CI checks for both config files
 examples/consumer/    a stack that takes a VPC block and subnets from a pool
