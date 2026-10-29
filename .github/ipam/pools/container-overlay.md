@@ -17,7 +17,7 @@
 | Pool Name | container-overlay |
 | CIDR | `172.16.0.0/13` (172.16.0.0 - 172.23.255.255) |
 | Total Addresses | 524,288 |
-| Allocated | 208,896/524,288 (39.8%) |
+| Allocated | 0/524,288 (0.0%) |
 | Environment | any |
 | Owner | platform |
 
@@ -25,12 +25,5 @@
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| 🔵&nbsp;&nbsp;Allocated | eks-prod-euw1-pods | `172.16.0.0/16` (172.16.0.0 - 172.16.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | eks-prod-euw1-services | `172.17.0.0/20` (172.17.0.0 - 172.17.15.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | eks-prod-apse2-services | `172.17.16.0/20` (172.17.16.0 - 172.17.31.255) | 4,096 |
-| 🔵&nbsp;&nbsp;Allocated | eks-staging-services | `172.17.32.0/20` (172.17.32.0 - 172.17.47.255) | 4,096 |
-| ⚪&nbsp;&nbsp;Available | — | `172.17.48.0—172.17.255.255` (172.17.48.0 - 172.17.255.255) | 53,248 |
-| 🔵&nbsp;&nbsp;Allocated | eks-prod-apse2-pods | `172.18.0.0/16` (172.18.0.0 - 172.18.255.255) | 65,536 |
-| 🔵&nbsp;&nbsp;Allocated | eks-staging-pods | `172.19.0.0/16` (172.19.0.0 - 172.19.255.255) | 65,536 |
-| ⚪&nbsp;&nbsp;Available | — | `172.20.0.0/14` (172.20.0.0 - 172.23.255.255) | 262,144 |
+| ⚪&nbsp;&nbsp;Available | — | `172.16.0.0/13` (172.16.0.0 - 172.23.255.255) | 524,288 |
 

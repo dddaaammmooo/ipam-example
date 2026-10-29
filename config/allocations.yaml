@@ -1,656 +1,4073 @@
 version: "1.0"
 allocations:
-    container-overlay:
-        - cidr: 172.16.0.0/16
-          id: 1a732328-8d47-4c3d-aff4-8fdea87dc353
-          name: eks-prod-euw1-pods
-          metadata:
-            cluster: eks-prod-euw1
-            purpose: pod CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 172.17.0.0/20
-          id: 60e22d49-7552-4fac-8b93-58e6d77e158c
-          name: eks-prod-euw1-services
-          metadata:
-            cluster: eks-prod-euw1
-            purpose: service CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 172.18.0.0/16
-          id: 6365fc8e-d87d-41b7-ad8c-ad7e433dc33a
-          name: eks-prod-apse2-pods
-          metadata:
-            cluster: eks-prod-apse2
-            purpose: pod CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 172.17.16.0/20
-          id: cb4adeff-0c89-4d39-85f0-edde4cc785fe
-          name: eks-prod-apse2-services
-          metadata:
-            cluster: eks-prod-apse2
-            purpose: service CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 172.19.0.0/16
-          id: 60831e15-2ecc-4937-8f4a-63ccffe070ad
-          name: eks-staging-pods
-          metadata:
-            cluster: eks-staging
-            purpose: pod CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 172.17.32.0/20
-          id: b702ba99-d7e6-45d2-8069-2a6b94f191e6
-          name: eks-staging-services
-          metadata:
-            cluster: eks-staging
-            purpose: service CIDR
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
     development:
-        - cidr: 10.48.0.0/18
-          id: bbffa0d8-d8b2-4c9a-804c-45e77ad2b0b8
-          name: checkout-dev-vpc
+        - cidr: 10.64.0.0/17
+          id: d89cebc9-9842-4561-b84f-40f4ba94d26c
+          name: media-streaming-dev-vpc
           metadata:
-            environment: development
-            purpose: vpc
-            stack: infra-checkout//dev
-            team: checkout
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.0.0/21
-          id: 0a1574ac-5380-461b-82f8-4f2fda283486
-          name: checkout-dev-private-eu-west-1a
-          parent_cidr: 10.48.0.0/18
-          metadata:
-            az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.8.0/21
-          id: 475fd526-b0bb-4479-ad00-687aaca52ebf
-          name: checkout-dev-private-eu-west-1b
-          parent_cidr: 10.48.0.0/18
-          metadata:
-            az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.16.0/21
-          id: 2218d1c3-0686-403c-9af3-8dba04ed0fdd
-          name: checkout-dev-private-eu-west-1c
-          parent_cidr: 10.48.0.0/18
-          metadata:
-            az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.24.0/24
-          id: 76d30a61-d361-4fc3-906e-83bc718c65b7
-          name: checkout-dev-public-eu-west-1a
-          parent_cidr: 10.48.0.0/18
+            environment: dev
+            product: media-streaming
+            size: massive
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.0.0/19
+          id: f1a436ab-7433-41f6-9cff-cda892406846
+          name: media-streaming-dev-compute-eu-west-1a
+          parent_cidr: 10.64.0.0/17
           metadata:
             az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.32.0/19
+          id: 361ca998-fbe7-43a8-97ff-66e59300f714
+          name: media-streaming-dev-compute-eu-west-1b
+          parent_cidr: 10.64.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.64.0/19
+          id: b89a8a8c-2390-435b-92e6-50bc793684f0
+          name: media-streaming-dev-compute-eu-west-1c
+          parent_cidr: 10.64.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.96.0/23
+          id: 3627e308-c01e-452e-8128-7507823b19b0
+          name: media-streaming-dev-public-eu-west-1a
+          parent_cidr: 10.64.0.0/17
+          metadata:
+            az: eu-west-1a
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.25.0/24
-          id: d78a7925-c8b4-4609-af00-23f4c2329a8c
-          name: checkout-dev-public-eu-west-1b
-          parent_cidr: 10.48.0.0/18
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.98.0/23
+          id: 2e212dda-7d9e-4369-8a2e-b7048282dd35
+          name: media-streaming-dev-public-eu-west-1b
+          parent_cidr: 10.64.0.0/17
           metadata:
             az: eu-west-1b
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.48.26.0/24
-          id: 676cb1e1-38d3-4edc-a712-d1498fa46df2
-          name: checkout-dev-public-eu-west-1c
-          parent_cidr: 10.48.0.0/18
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.100.0/23
+          id: 96b57745-5bd3-488a-8c67-b5fae33e0b26
+          name: media-streaming-dev-public-eu-west-1c
+          parent_cidr: 10.64.0.0/17
           metadata:
             az: eu-west-1c
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.49.0.0/16
-          id: 3b52536b-f3bc-4238-8018-1813658ac3f8
-          name: sandboxes-dev
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.102.0/25
+          id: 63052f84-a8eb-4446-a7da-f498b51a2309
+          name: media-streaming-dev-data-eu-west-1a
+          parent_cidr: 10.64.0.0/17
           metadata:
-            purpose: per-engineer sandbox VPCs
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.49.0.0/22
-          id: ccea0bed-dac7-49e3-83c0-548531a8ef2f
-          name: sandbox-01
-          parent_cidr: 10.49.0.0/16
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.102.128/25
+          id: 02732c54-d85f-485c-9283-2e7b8737b9e8
+          name: media-streaming-dev-data-eu-west-1b
+          parent_cidr: 10.64.0.0/17
           metadata:
-            purpose: sandbox
-            ttl: 30d
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.49.4.0/22
-          id: 8fb3ed58-af84-4c87-9a68-1fb39d99d537
-          name: sandbox-02
-          parent_cidr: 10.49.0.0/16
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.103.0/25
+          id: 23bb078a-9b3d-459b-9e70-341eb871379d
+          name: media-streaming-dev-data-eu-west-1c
+          parent_cidr: 10.64.0.0/17
           metadata:
-            purpose: sandbox
-            ttl: 30d
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.49.8.0/22
-          id: 9e45ca1e-2599-44de-8188-75cf03c34cd2
-          name: sandbox-03
-          parent_cidr: 10.49.0.0/16
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.128.0/17
+          id: 7cfee28e-c974-437c-a906-fe588083432e
+          name: ml-training-dev-vpc
           metadata:
-            purpose: sandbox
-            ttl: 30d
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.49.12.0/22
-          id: 76b6a38f-404c-4612-ab1c-12a0d250f573
-          name: sandbox-04
-          parent_cidr: 10.49.0.0/16
+            environment: dev
+            product: ml-training
+            size: massive
+            team: data-science
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.128.0/19
+          id: ca0892d7-5b5c-41fd-96d8-efd5752c6a4e
+          name: ml-training-dev-compute-eu-west-1a
+          parent_cidr: 10.64.128.0/17
           metadata:
-            purpose: sandbox
-            ttl: 30d
-          created_at: "2026-10-29T19:52:33Z"
-    prod-ap-southeast-2:
-        - cidr: 10.16.0.0/16
-          id: dd918a40-1db9-4937-995e-2351065a308a
-          name: payments-prod-apse2-vpc
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.160.0/19
+          id: 99e47268-d9fa-430a-9f61-4e29b349564b
+          name: ml-training-dev-compute-eu-west-1b
+          parent_cidr: 10.64.128.0/17
           metadata:
-            environment: production
-            purpose: vpc
-            stack: infra-payments//prod/ap-southeast-2
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.192.0/19
+          id: bcdd023d-fa3e-42da-9503-717d71d87783
+          name: ml-training-dev-compute-eu-west-1c
+          parent_cidr: 10.64.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.224.0/21
+          id: 26e0f6db-e2c8-4edc-aabc-4fe1cfa306b1
+          name: ml-training-dev-data-eu-west-1a
+          parent_cidr: 10.64.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.232.0/21
+          id: 9cd9bb2d-3288-411e-8794-eb4ad6417292
+          name: ml-training-dev-data-eu-west-1b
+          parent_cidr: 10.64.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.64.240.0/21
+          id: 40e058bc-eb06-423c-adfa-9560c4145f0d
+          name: ml-training-dev-data-eu-west-1c
+          parent_cidr: 10.64.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.0.0/18
+          id: 5c58f9af-7fee-4f23-8123-15e7d06364f6
+          name: data-lake-dev-vpc
+          metadata:
+            environment: dev
+            product: data-lake
+            size: large
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.0.0/20
+          id: 938d9317-2f7a-49d0-8eac-df79a5266d15
+          name: data-lake-dev-data-eu-west-1a
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.16.0/20
+          id: b605ee65-1a88-4b93-9f6e-032704fedd11
+          name: data-lake-dev-data-eu-west-1b
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.32.0/20
+          id: 65a98def-b90d-4093-a890-624a6ef081a2
+          name: data-lake-dev-data-eu-west-1c
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.48.0/22
+          id: 5e1ec47c-2335-4c43-8cf5-f8856fb4df91
+          name: data-lake-dev-compute-eu-west-1a
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.52.0/22
+          id: 14a2c156-103f-440e-8aac-32db6f4bdc89
+          name: data-lake-dev-compute-eu-west-1b
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.56.0/22
+          id: 7a3e2940-0530-47b2-9a11-597fc06dae74
+          name: data-lake-dev-compute-eu-west-1c
+          parent_cidr: 10.65.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.64.0/18
+          id: 0aea3b0d-624c-489d-994f-7f8640ff97c2
+          name: search-indexing-dev-vpc
+          metadata:
+            environment: dev
+            product: search-indexing
+            size: large
+            team: search
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.64.0/21
+          id: 6479404b-bc18-4721-adf6-32f47a19145c
+          name: search-indexing-dev-compute-eu-west-1a
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.72.0/21
+          id: 91459a05-fe8d-41c6-b247-f23ead089aac
+          name: search-indexing-dev-compute-eu-west-1b
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.80.0/21
+          id: 60564440-0239-40c1-b16d-ab4c0a90fb28
+          name: search-indexing-dev-compute-eu-west-1c
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.88.0/21
+          id: 20540b27-daed-498a-b5ad-2df5822c4e70
+          name: search-indexing-dev-data-eu-west-1a
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.96.0/21
+          id: bd9261c7-967a-47c3-9678-248b4c0d291e
+          name: search-indexing-dev-data-eu-west-1b
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.104.0/21
+          id: 550c5c8a-9386-4dc2-a4cc-4614159f6435
+          name: search-indexing-dev-data-eu-west-1c
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.112.0/27
+          id: e28e560c-9e9a-49ca-aefc-ca59b320b960
+          name: search-indexing-dev-public-eu-west-1a
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.112.32/27
+          id: f38ebcb4-bd00-46ef-b8aa-8305b5a4f15d
+          name: search-indexing-dev-public-eu-west-1b
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.112.64/27
+          id: 1d05a3c3-cace-457a-b683-aacd4b045130
+          name: search-indexing-dev-public-eu-west-1c
+          parent_cidr: 10.65.64.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.128.0/18
+          id: b4940cb9-aa85-4916-86a0-bca65fa745b2
+          name: video-transcoding-dev-vpc
+          metadata:
+            environment: dev
+            product: video-transcoding
+            size: large
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.128.0/20
+          id: 64824d9a-53f1-494d-8f4b-ec83528234db
+          name: video-transcoding-dev-compute-eu-west-1a
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.144.0/20
+          id: e7fc7168-07c7-46bb-a022-edcfa00c31e8
+          name: video-transcoding-dev-compute-eu-west-1b
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.160.0/20
+          id: fd3939ac-a952-4236-839f-7655570bddd8
+          name: video-transcoding-dev-compute-eu-west-1c
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.176.0/23
+          id: 927b4303-5249-4539-8842-0f41a405e107
+          name: video-transcoding-dev-data-eu-west-1a
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.178.0/23
+          id: 17f7a7ff-f299-4e66-8d52-83d685bb3c8b
+          name: video-transcoding-dev-data-eu-west-1b
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.180.0/23
+          id: 5e6d092e-67a8-4f42-bdff-cc0d2d3786ec
+          name: video-transcoding-dev-data-eu-west-1c
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.182.0/25
+          id: 734c2c82-26dd-4e2f-83af-3e6c74418d89
+          name: video-transcoding-dev-public-eu-west-1a
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.182.128/25
+          id: 835b2bc3-d5c7-43c5-99fb-02c21f0843a4
+          name: video-transcoding-dev-public-eu-west-1b
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.183.0/25
+          id: 4249afdf-230a-4c0a-8957-ae6705a2ff5a
+          name: video-transcoding-dev-public-eu-west-1c
+          parent_cidr: 10.65.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.192.0/19
+          id: da0b0b34-7aa2-4220-9051-391532b26ea7
+          name: log-archive-dev-vpc
+          metadata:
+            environment: dev
+            product: log-archive
+            size: large
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.192.0/21
+          id: 1218bc09-5b75-4c84-97cf-cb17c2bb3149
+          name: log-archive-dev-data-eu-west-1a
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.200.0/21
+          id: 16538002-8371-4f30-a8ff-646251ab31bd
+          name: log-archive-dev-data-eu-west-1b
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.208.0/21
+          id: 591f251f-b0a3-4a69-af97-b43fa20fedd3
+          name: log-archive-dev-data-eu-west-1c
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.216.0/25
+          id: cb90be81-ae19-42b9-8345-e23ba725be50
+          name: log-archive-dev-compute-eu-west-1a
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.216.128/25
+          id: 7b648e00-d92c-4427-84d2-b4f50e00f91f
+          name: log-archive-dev-compute-eu-west-1b
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.217.0/25
+          id: 641ed2be-9b69-47b6-a477-5c1e27e081de
+          name: log-archive-dev-compute-eu-west-1c
+          parent_cidr: 10.65.192.0/19
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.224.0/19
+          id: 32e91c1b-43a9-4825-842a-5bea950194ad
+          name: realtime-messaging-dev-vpc
+          metadata:
+            environment: dev
+            product: realtime-messaging
+            size: large
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.224.0/21
+          id: 8ef63d86-abc7-4797-91de-6dbbf4ab4a45
+          name: realtime-messaging-dev-compute-eu-west-1a
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.232.0/21
+          id: 96719337-d011-4281-ac49-47314c61f1bc
+          name: realtime-messaging-dev-compute-eu-west-1b
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.240.0/21
+          id: dbd6ede6-1331-40a5-9559-48fa024b28de
+          name: realtime-messaging-dev-compute-eu-west-1c
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.248.0/24
+          id: c4d35f1b-c2c1-45b9-9aa4-6372207d911e
+          name: realtime-messaging-dev-data-eu-west-1a
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.249.0/24
+          id: 88c2e9be-786b-472d-a773-afe198754863
+          name: realtime-messaging-dev-data-eu-west-1b
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.250.0/24
+          id: c489d86d-9116-4e0d-96a0-60149f35b3d0
+          name: realtime-messaging-dev-data-eu-west-1c
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.251.0/25
+          id: 296b3cf7-7913-4096-bab9-ee9402f174b7
+          name: realtime-messaging-dev-public-eu-west-1a
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.251.128/25
+          id: 74f2b74e-8a87-4600-89f8-b21a8098cebb
+          name: realtime-messaging-dev-public-eu-west-1b
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.65.252.0/25
+          id: 1ae2051e-5cf7-4de1-89cf-7536e9ee3f21
+          name: realtime-messaging-dev-public-eu-west-1c
+          parent_cidr: 10.65.224.0/19
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.0.0/19
+          id: 5d3c92fe-d999-4191-bc21-68a89ba35c61
+          name: web-storefront-dev-vpc
+          metadata:
+            environment: dev
+            product: web-storefront
+            size: large
+            team: commerce
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.0.0/22
+          id: dcb691c5-1a0f-404c-a1b1-f42dafc89332
+          name: web-storefront-dev-compute-eu-west-1a
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.4.0/22
+          id: 29b535fc-3d00-4b95-bdae-dc811451057c
+          name: web-storefront-dev-compute-eu-west-1b
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.8.0/22
+          id: 33d8873b-b249-4003-8e4e-ba8b787f55ba
+          name: web-storefront-dev-compute-eu-west-1c
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.12.0/23
+          id: 33e4e9eb-5fa7-406d-9404-e77edd390443
+          name: web-storefront-dev-public-eu-west-1a
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.14.0/23
+          id: 7a3d693c-b168-4e1c-805d-47722904ad71
+          name: web-storefront-dev-public-eu-west-1b
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.16.0/23
+          id: 63401a61-3f5b-4beb-a44a-39bc0e0e502b
+          name: web-storefront-dev-public-eu-west-1c
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.18.0/25
+          id: b895e095-5036-460b-8564-d06ea2bc547b
+          name: web-storefront-dev-data-eu-west-1a
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.18.128/25
+          id: 7b91e690-f454-474b-a838-c36bb55a2220
+          name: web-storefront-dev-data-eu-west-1b
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.19.0/25
+          id: 230bb574-1f2c-444e-b76e-ef26f1839206
+          name: web-storefront-dev-data-eu-west-1c
+          parent_cidr: 10.66.0.0/19
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.32.0/21
+          id: 5b09fe3c-912a-4bda-ae26-59f0312a81c7
+          name: analytics-dashboards-dev-vpc
+          metadata:
+            environment: dev
+            product: analytics-dashboards
+            size: medium
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.32.0/24
+          id: a2f58103-710f-4329-9645-ccdbc12c3a35
+          name: analytics-dashboards-dev-data-eu-west-1a
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.33.0/24
+          id: 2b497338-3723-4265-a84c-5ea830fad321
+          name: analytics-dashboards-dev-data-eu-west-1b
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.34.0/24
+          id: bf86077b-f234-4990-b93e-a26004a08385
+          name: analytics-dashboards-dev-data-eu-west-1c
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.35.0/25
+          id: dd2b09cd-9762-4d40-8328-de5a3f6304ed
+          name: analytics-dashboards-dev-compute-eu-west-1a
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.35.128/25
+          id: f9199105-ae5f-43d3-adaa-0b217c343331
+          name: analytics-dashboards-dev-compute-eu-west-1b
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.36.0/25
+          id: cc2841ef-8ed4-4b66-95f0-f99cda960a6d
+          name: analytics-dashboards-dev-compute-eu-west-1c
+          parent_cidr: 10.66.32.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.40.0/21
+          id: dd86041a-8a50-4113-8eef-fdc5673a94d1
+          name: cicd-automation-dev-vpc
+          metadata:
+            environment: dev
+            product: cicd-automation
+            size: medium
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.40.0/23
+          id: d9e21ed8-7729-4a53-ab84-359cc08dcf33
+          name: cicd-automation-dev-compute-eu-west-1a
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.42.0/23
+          id: f6411ce0-cff4-4693-9466-8b5e5ccded76
+          name: cicd-automation-dev-compute-eu-west-1b
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.44.0/23
+          id: c527ab5f-19cf-4a23-ab0d-1a84666c3ebd
+          name: cicd-automation-dev-compute-eu-west-1c
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.46.0/27
+          id: dde67dd6-e92c-4f0c-ae8c-ac4488d3c116
+          name: cicd-automation-dev-data-eu-west-1a
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.46.32/27
+          id: 271d0765-f0a1-4d5d-b694-46b6c63a715d
+          name: cicd-automation-dev-data-eu-west-1b
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.46.64/27
+          id: 7b195dc4-91a5-42fe-bb79-94f1cbcaf9d1
+          name: cicd-automation-dev-data-eu-west-1c
+          parent_cidr: 10.66.40.0/21
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.48.0/21
+          id: 33848ac9-1041-473c-9be8-904382cb61a3
+          name: customer-api-dev-vpc
+          metadata:
+            environment: dev
+            product: customer-api
+            size: medium
+            team: platform-api
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.48.0/24
+          id: 53e981c4-0510-4418-af63-87c1ac994714
+          name: customer-api-dev-compute-eu-west-1a
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.49.0/24
+          id: c5969f85-8d4f-445f-b26c-32a8bd01866e
+          name: customer-api-dev-compute-eu-west-1b
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.50.0/24
+          id: 5b3e2997-8d1c-49ad-9e51-266733c88777
+          name: customer-api-dev-compute-eu-west-1c
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.51.0/26
+          id: e9c2f29e-1c59-43c3-b830-c256603149c8
+          name: customer-api-dev-data-eu-west-1a
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.51.64/26
+          id: 659cf715-fd07-4e97-b181-ffd06bc3191a
+          name: customer-api-dev-data-eu-west-1b
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.51.128/26
+          id: ac793770-1ba9-40fc-ae24-fada84ebdc7f
+          name: customer-api-dev-data-eu-west-1c
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.51.192/26
+          id: e867bcc7-563d-4e80-bdf8-fcf9f7e16148
+          name: customer-api-dev-public-eu-west-1a
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.52.0/26
+          id: 00b78239-a713-4653-af33-6ac443aa1b70
+          name: customer-api-dev-public-eu-west-1b
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.52.64/26
+          id: d8bc6346-1c5e-4680-ad4d-8a2ccfb4126b
+          name: customer-api-dev-public-eu-west-1c
+          parent_cidr: 10.66.48.0/21
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.56.0/21
+          id: d8034eb3-95b3-44cf-9383-4dbcb714c1ba
+          name: mobile-backend-dev-vpc
+          metadata:
+            environment: dev
+            product: mobile-backend
+            size: medium
+            team: mobile
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.56.0/24
+          id: c44e1055-f037-4abe-be7a-9a2d4a927475
+          name: mobile-backend-dev-compute-eu-west-1a
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.57.0/24
+          id: 4549d9a8-4ac6-4f14-a098-04146c4c7b86
+          name: mobile-backend-dev-compute-eu-west-1b
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.58.0/24
+          id: 33ae2c2c-62a9-45f7-98fc-f99e46fee7f7
+          name: mobile-backend-dev-compute-eu-west-1c
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.59.0/26
+          id: 6315a5ef-eb22-4345-a769-cb34404729c4
+          name: mobile-backend-dev-data-eu-west-1a
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.59.64/26
+          id: ea6e92ad-0318-4d7c-a456-9ebe3c7c05c3
+          name: mobile-backend-dev-data-eu-west-1b
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.59.128/26
+          id: 808deeb5-21ba-4b35-a88f-db3e1bb21cdc
+          name: mobile-backend-dev-data-eu-west-1c
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.59.192/27
+          id: 7bc21b3c-058c-4995-951f-e89a23e726c7
+          name: mobile-backend-dev-public-eu-west-1a
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.59.224/27
+          id: db3a886b-3a49-4a06-b5c6-b2eea214218d
+          name: mobile-backend-dev-public-eu-west-1b
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.60.0/27
+          id: dd03e356-499c-40c4-a1fa-65b048c0e39a
+          name: mobile-backend-dev-public-eu-west-1c
+          parent_cidr: 10.66.56.0/21
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.64.0/21
+          id: a64fb8ec-c209-43e6-8834-c9ddbbc54051
+          name: payments-gateway-dev-vpc
+          metadata:
+            environment: dev
+            product: payments-gateway
+            size: medium
             team: payments
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.0.0/20
-          id: 3ac1fba5-67cb-4a54-96bf-82e8afa6ce8a
-          name: payments-prod-apse2-private-ap-southeast-2a
-          parent_cidr: 10.16.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.64.0/24
+          id: 6fda59e5-356e-42c4-81c1-c1e2dfddedbc
+          name: payments-gateway-dev-compute-eu-west-1a
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.16.0/20
-          id: e366cfd2-37e4-4f4b-9fb0-48ac685f3ae5
-          name: payments-prod-apse2-private-ap-southeast-2b
-          parent_cidr: 10.16.0.0/16
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.65.0/24
+          id: 55cb66c6-cf4b-472e-9c38-be44e6ffe909
+          name: payments-gateway-dev-compute-eu-west-1b
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.32.0/20
-          id: 1e65a495-7aeb-4a91-8971-5da9178adca1
-          name: payments-prod-apse2-private-ap-southeast-2c
-          parent_cidr: 10.16.0.0/16
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.66.0/24
+          id: 3d35cc04-13cf-4d4a-8579-d12c729f7967
+          name: payments-gateway-dev-compute-eu-west-1c
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.48.0/24
-          id: eb8769d4-0468-44f1-a62c-5a932611d0c7
-          name: payments-prod-apse2-public-ap-southeast-2a
-          parent_cidr: 10.16.0.0/16
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.67.0/25
+          id: d4f3be58-cd1b-442b-b2c3-02e4a9d151cb
+          name: payments-gateway-dev-data-eu-west-1a
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2a
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.49.0/24
-          id: 5fc673bb-ba7a-495d-b88d-83c482aecc1e
-          name: payments-prod-apse2-public-ap-southeast-2b
-          parent_cidr: 10.16.0.0/16
-          metadata:
-            az: ap-southeast-2b
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.50.0/24
-          id: 08a9148f-30b5-42a9-a1a2-3da8750599b2
-          name: payments-prod-apse2-public-ap-southeast-2c
-          parent_cidr: 10.16.0.0/16
-          metadata:
-            az: ap-southeast-2c
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.51.0/24
-          id: 61e83c7f-49bf-4f58-8b7e-ec9604c14cc2
-          name: payments-prod-apse2-data-ap-southeast-2a
-          parent_cidr: 10.16.0.0/16
-          metadata:
-            az: ap-southeast-2a
+            az: eu-west-1a
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.52.0/24
-          id: 7fa02ec5-3673-4b43-935c-c36502c32625
-          name: payments-prod-apse2-data-ap-southeast-2b
-          parent_cidr: 10.16.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.67.128/25
+          id: 806dc59f-f156-4242-adc6-8f47f124f27d
+          name: payments-gateway-dev-data-eu-west-1b
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2b
+            az: eu-west-1b
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.16.53.0/24
-          id: f73fac37-4382-4f6d-b8ef-5df420390fbc
-          name: payments-prod-apse2-data-ap-southeast-2c
-          parent_cidr: 10.16.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.68.0/25
+          id: ec42658f-1a97-4f9f-80eb-067cd46fbe08
+          name: payments-gateway-dev-data-eu-west-1c
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2c
+            az: eu-west-1c
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.0.0/16
-          id: 7832bef2-8dc5-4649-820b-0dc1a6539378
-          name: platform-eks-prod-apse2-vpc
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.68.128/27
+          id: 665f47fd-e003-44cb-aab7-799788ec90bc
+          name: payments-gateway-dev-public-eu-west-1a
+          parent_cidr: 10.66.64.0/21
           metadata:
-            environment: production
-            purpose: vpc
-            stack: infra-platform//eks/prod-apse2
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.0.0/19
-          id: 667bc1f9-9b7f-4094-8df7-fb8d6e506f13
-          name: platform-eks-prod-apse2-private-ap-southeast-2a
-          parent_cidr: 10.17.0.0/16
-          metadata:
-            az: ap-southeast-2a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.32.0/19
-          id: 233efaf7-10c3-4b23-b943-6c0d8842de0e
-          name: platform-eks-prod-apse2-private-ap-southeast-2b
-          parent_cidr: 10.17.0.0/16
-          metadata:
-            az: ap-southeast-2b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.64.0/19
-          id: 2bc4e1a0-0ca6-4b67-95f8-6423897061e5
-          name: platform-eks-prod-apse2-private-ap-southeast-2c
-          parent_cidr: 10.17.0.0/16
-          metadata:
-            az: ap-southeast-2c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.96.0/24
-          id: 02f52a04-01ea-4d24-982a-9d71eba43010
-          name: platform-eks-prod-apse2-public-ap-southeast-2a
-          parent_cidr: 10.17.0.0/16
-          metadata:
-            az: ap-southeast-2a
+            az: eu-west-1a
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.97.0/24
-          id: 49898861-ce0f-4258-bcd5-a0f2daf03fb9
-          name: platform-eks-prod-apse2-public-ap-southeast-2b
-          parent_cidr: 10.17.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.68.160/27
+          id: 37df471e-e1c4-481c-b728-011bf83c9eef
+          name: payments-gateway-dev-public-eu-west-1b
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2b
+            az: eu-west-1b
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.17.98.0/24
-          id: 5eec7f1b-2bdd-4769-9a8e-157fa5505eb7
-          name: platform-eks-prod-apse2-public-ap-southeast-2c
-          parent_cidr: 10.17.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.68.192/27
+          id: 074e442d-d2e7-4686-89cb-0e5927b0e168
+          name: payments-gateway-dev-public-eu-west-1c
+          parent_cidr: 10.66.64.0/21
           metadata:
-            az: ap-southeast-2c
+            az: eu-west-1c
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.0/23
+          id: 6b59034a-d91d-43c8-be48-a99f515ab648
+          name: identity-auth-dev-vpc
+          metadata:
+            environment: dev
+            product: identity-auth
+            size: small
+            team: identity
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.0/26
+          id: 9a5e8de7-c86d-4721-bbd7-957ca06f0238
+          name: identity-auth-dev-compute-eu-west-1a
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.64/26
+          id: 0ddc97db-226a-436c-8321-a22ca61f777d
+          name: identity-auth-dev-compute-eu-west-1b
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.128/26
+          id: 8d7be5ae-00cc-434f-905a-b3da33907fbe
+          name: identity-auth-dev-compute-eu-west-1c
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.192/27
+          id: d72e8455-488e-4e0b-bcae-251387fafd45
+          name: identity-auth-dev-data-eu-west-1a
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.72.224/27
+          id: 42915939-4af8-4e52-abe5-7a4e098f2a5e
+          name: identity-auth-dev-data-eu-west-1b
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.73.0/27
+          id: 5a3401bd-8bd7-4b70-b839-c80184e9a774
+          name: identity-auth-dev-data-eu-west-1c
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.73.32/28
+          id: 9e060cd8-88e0-4ff6-a49b-9dbae5cd1383
+          name: identity-auth-dev-public-eu-west-1a
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.73.48/28
+          id: 3d130a09-44a7-45bf-a490-2d83cf77f4ef
+          name: identity-auth-dev-public-eu-west-1b
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.73.64/28
+          id: f7f9daf7-8c85-428b-89b7-2423b6de0a7e
+          name: identity-auth-dev-public-eu-west-1c
+          parent_cidr: 10.66.72.0/23
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.0/24
+          id: 8b8a2bcf-0f1a-4290-ba3f-872452b1c09d
+          name: email-delivery-dev-vpc
+          metadata:
+            environment: dev
+            product: email-delivery
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.0/27
+          id: e553e7aa-90a6-46ef-8008-e7330a08754f
+          name: email-delivery-dev-compute-eu-west-1a
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.32/27
+          id: 5e1bc0a2-9ef7-42ab-80cc-4f3910886997
+          name: email-delivery-dev-compute-eu-west-1b
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.64/27
+          id: 3142f391-bb93-4a04-912e-567ec2e33140
+          name: email-delivery-dev-compute-eu-west-1c
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.96/28
+          id: c336296c-e7a8-4a65-bb2a-4ad33fa8fcad
+          name: email-delivery-dev-public-eu-west-1a
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.112/28
+          id: 9c7d819e-8ba7-403e-ab66-f26005be93f7
+          name: email-delivery-dev-public-eu-west-1b
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.74.128/28
+          id: 92d1169c-1711-46bb-ac2f-9ce4c51ec790
+          name: email-delivery-dev-public-eu-west-1c
+          parent_cidr: 10.66.74.0/24
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.0/24
+          id: ffc13bc2-50a3-4055-88ad-f1d15ae8893b
+          name: notification-service-dev-vpc
+          metadata:
+            environment: dev
+            product: notification-service
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.0/27
+          id: b7e86aa6-732e-4920-81fc-374fd2fe6a4f
+          name: notification-service-dev-compute-eu-west-1a
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.32/27
+          id: 2c1f39a7-edd3-4d59-8d3b-1dd24074a55d
+          name: notification-service-dev-compute-eu-west-1b
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.64/27
+          id: c46dd9be-828b-4289-86f6-c8a70ce1ecfa
+          name: notification-service-dev-compute-eu-west-1c
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.96/28
+          id: 26098aa2-44ad-4e61-b048-911298ee4ac9
+          name: notification-service-dev-data-eu-west-1a
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.112/28
+          id: cc2d3065-e22f-4ee8-afbd-0fd7379df592
+          name: notification-service-dev-data-eu-west-1b
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.75.128/28
+          id: 3f50d8ee-e9f5-4ef4-acc2-03814321abd2
+          name: notification-service-dev-data-eu-west-1c
+          parent_cidr: 10.66.75.0/24
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.0/25
+          id: 8f966ddb-f0cb-4ce3-8167-e4e75b0a3fe3
+          name: accounting-dev-vpc
+          metadata:
+            environment: dev
+            product: accounting
+            size: tiny
+            team: finance
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.0/28
+          id: be2ba2a1-4b51-4c95-bbe3-3c25cceca081
+          name: accounting-dev-compute-eu-west-1a
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.16/28
+          id: ddc89ce0-d6d7-4cc8-a816-6319c40507ed
+          name: accounting-dev-compute-eu-west-1b
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.32/28
+          id: ff579063-5b6f-40a1-ae1a-fb723197fa1d
+          name: accounting-dev-compute-eu-west-1c
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.48/28
+          id: 96be6b4f-5f49-4905-b743-4a17ea11e86a
+          name: accounting-dev-data-eu-west-1a
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.64/28
+          id: e995a121-f95b-4031-aee8-5a39f634dda6
+          name: accounting-dev-data-eu-west-1b
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.80/28
+          id: 6b5df044-b30f-4863-b0af-93a1def40f0f
+          name: accounting-dev-data-eu-west-1c
+          parent_cidr: 10.66.76.0/25
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.128/25
+          id: 7b9ef9dd-743f-4ab8-8f66-ec03ebc587a0
+          name: feature-flags-dev-vpc
+          metadata:
+            environment: dev
+            product: feature-flags
+            size: small
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.128/28
+          id: e6bd9289-346e-4d6a-869d-7a849a99dd03
+          name: feature-flags-dev-compute-eu-west-1a
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.144/28
+          id: 85ccb577-eb32-4859-ad36-83c51eb56b39
+          name: feature-flags-dev-compute-eu-west-1b
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.160/28
+          id: 601d6487-060c-4c8c-9b65-31b6a46330d9
+          name: feature-flags-dev-compute-eu-west-1c
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.176/28
+          id: 1c3a2f94-2a2b-48f6-a03f-8f0314abd917
+          name: feature-flags-dev-data-eu-west-1a
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.192/28
+          id: 6418c067-4bc0-4089-87f1-b7a220a6d4a7
+          name: feature-flags-dev-data-eu-west-1b
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.76.208/28
+          id: c8154ae8-2ff6-4ed4-a232-6bbd5242bdc0
+          name: feature-flags-dev-data-eu-west-1c
+          parent_cidr: 10.66.76.128/25
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.0/25
+          id: 3051580b-fbf3-48ab-81c6-9442506bac4a
+          name: hr-portal-dev-vpc
+          metadata:
+            environment: dev
+            product: hr-portal
+            size: tiny
+            team: people
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.0/28
+          id: 28a46468-11f7-42db-bb01-69cb9e23dc91
+          name: hr-portal-dev-compute-eu-west-1a
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.16/28
+          id: c85f3ac5-8c72-48fd-876f-f23db227365f
+          name: hr-portal-dev-compute-eu-west-1b
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.32/28
+          id: d4ee86dd-8918-481b-a4c9-8e9621cd0b12
+          name: hr-portal-dev-compute-eu-west-1c
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.48/28
+          id: 08501383-3e59-4426-abac-dd218fabf021
+          name: hr-portal-dev-data-eu-west-1a
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.64/28
+          id: 57c01fbe-651e-4c26-9511-d6d7d7343178
+          name: hr-portal-dev-data-eu-west-1b
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.80/28
+          id: 4f960ebb-12e5-4cdf-b2b6-f5e70ad6cbd1
+          name: hr-portal-dev-data-eu-west-1c
+          parent_cidr: 10.66.77.0/25
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.128/25
+          id: 727a2f68-360f-49d4-94b9-aa7c624a6119
+          name: status-page-dev-vpc
+          metadata:
+            environment: dev
+            product: status-page
+            size: tiny
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.128/28
+          id: 4ad2e92a-ae49-4272-83ac-1b827e39532d
+          name: status-page-dev-compute-eu-west-1a
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.144/28
+          id: 0dd2c0b5-308f-4fa5-a171-3fdac0caa1df
+          name: status-page-dev-compute-eu-west-1b
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.160/28
+          id: 1130041d-9ac8-4114-877f-385fa0a92630
+          name: status-page-dev-compute-eu-west-1c
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.176/28
+          id: ae944efe-f19f-4b4a-b1ee-d897c587fccb
+          name: status-page-dev-public-eu-west-1a
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.192/28
+          id: 74c1ea44-517f-439b-a543-e84834cdc124
+          name: status-page-dev-public-eu-west-1b
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.66.77.208/28
+          id: 09ebfd7a-4f48-46c9-a98f-db5b6e845610
+          name: status-page-dev-public-eu-west-1c
+          parent_cidr: 10.66.77.128/25
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
     prod-eu-west-1:
+        - cidr: 10.0.0.0/14
+          id: a838bfc4-9a1e-4722-9c75-4bd0d9875e5c
+          name: media-streaming-prd-vpc
+          metadata:
+            environment: prd
+            product: media-streaming
+            size: massive
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
         - cidr: 10.0.0.0/16
-          id: fc197613-0617-436d-83a8-260fb1b1c8b9
-          name: payments-prod-euw1-vpc
-          metadata:
-            environment: production
-            purpose: vpc
-            stack: infra-payments//prod/eu-west-1
-            team: payments
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.0.0/20
-          id: 47587d8e-b14e-43a3-94f6-502b1f8ed40b
-          name: payments-prod-euw1-private-eu-west-1a
-          parent_cidr: 10.0.0.0/16
+          id: bb0c47b7-0d2a-4884-8186-026c996fb0e1
+          name: media-streaming-prd-compute-eu-west-1a
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.16.0/20
-          id: 45ba8af9-b62d-4572-acb3-677dbb0b7cda
-          name: payments-prod-euw1-private-eu-west-1b
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.32.0/20
-          id: 3eb2922e-5ce7-4829-bc66-7d4af88c1f92
-          name: payments-prod-euw1-private-eu-west-1c
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.48.0/24
-          id: 9525018c-849e-4325-93b0-8663a5252bf6
-          name: payments-prod-euw1-public-eu-west-1a
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1a
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.49.0/24
-          id: 890518ff-b3aa-4c8d-a63d-30c635459048
-          name: payments-prod-euw1-public-eu-west-1b
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1b
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.50.0/24
-          id: 21eef8cd-2bcf-47f2-90e1-6144da4b9bd5
-          name: payments-prod-euw1-public-eu-west-1c
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1c
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.51.0/24
-          id: 16d6b86f-353a-4187-b34e-9aec3a62134d
-          name: payments-prod-euw1-data-eu-west-1a
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1a
-            tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.52.0/24
-          id: 8d05fbfe-ade1-477a-9663-bbff1e8f42ae
-          name: payments-prod-euw1-data-eu-west-1b
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1b
-            tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.0.53.0/24
-          id: f8c43536-595e-476a-934c-71fe56542765
-          name: payments-prod-euw1-data-eu-west-1c
-          parent_cidr: 10.0.0.0/16
-          metadata:
-            az: eu-west-1c
-            tier: data
-          created_at: "2026-10-29T19:52:33Z"
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
         - cidr: 10.1.0.0/16
-          id: bc0a81ed-9118-47de-844f-77fa0c3de1bf
-          name: payments-prod-euw1-vpc-growth
+          id: 0edcdb0d-26b4-4bc9-8ff7-4fb08ecf450d
+          name: media-streaming-prd-compute-eu-west-1b
+          parent_cidr: 10.0.0.0/14
           metadata:
-            purpose: future secondary CIDR for payments-prod-euw1-vpc
-            team: payments
-          created_at: "2026-10-29T19:52:33Z"
-          reserved: true
-          contiguous_with: 10.0.0.0/16
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
         - cidr: 10.2.0.0/16
-          id: 3998c751-fe16-49c0-8471-281f48d09261
-          name: platform-eks-prod-euw1-vpc
-          metadata:
-            environment: production
-            purpose: vpc
-            stack: infra-platform//eks/prod-euw1
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.0.0/19
-          id: 946f50e7-0912-4c27-be41-bd82009810e1
-          name: platform-eks-prod-euw1-private-eu-west-1a
-          parent_cidr: 10.2.0.0/16
-          metadata:
-            az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.32.0/19
-          id: f6ee2d76-9231-4f8e-aabf-5847a4084a28
-          name: platform-eks-prod-euw1-private-eu-west-1b
-          parent_cidr: 10.2.0.0/16
-          metadata:
-            az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.64.0/19
-          id: 83bce4d5-02dc-4a22-891b-1a3671f93b2f
-          name: platform-eks-prod-euw1-private-eu-west-1c
-          parent_cidr: 10.2.0.0/16
+          id: 9ee0ad87-1818-4354-9017-08b4f686940d
+          name: media-streaming-prd-compute-eu-west-1c
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.96.0/24
-          id: eee19c71-ffe9-4fab-b095-06f6e39728d5
-          name: platform-eks-prod-euw1-public-eu-west-1a
-          parent_cidr: 10.2.0.0/16
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.0.0/20
+          id: 3094786f-a057-49c8-b883-6aaed589b03d
+          name: media-streaming-prd-public-eu-west-1a
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1a
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.97.0/24
-          id: c392e773-c37f-4142-b054-034702027cff
-          name: platform-eks-prod-euw1-public-eu-west-1b
-          parent_cidr: 10.2.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.16.0/20
+          id: 6e7af901-7fe3-49fc-ba2a-6c5ee778e5fe
+          name: media-streaming-prd-public-eu-west-1b
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1b
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.2.98.0/24
-          id: d42a84f0-971b-4841-b494-7e79fc04472b
-          name: platform-eks-prod-euw1-public-eu-west-1c
-          parent_cidr: 10.2.0.0/16
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.32.0/20
+          id: 434a8be0-7523-4b2b-9084-dfbea4fe6d17
+          name: media-streaming-prd-public-eu-west-1c
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1c
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.3.0.0/18
-          id: 4e12a9d0-3846-4df3-815e-ec69cadc0439
-          name: data-warehouse-prod-euw1-vpc
-          metadata:
-            environment: production
-            purpose: vpc
-            stack: infra-data//warehouse/prod
-            team: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.3.0.0/21
-          id: 6ac2092a-f3cb-4e39-9147-4822358c6658
-          name: data-warehouse-prod-euw1-private-eu-west-1a
-          parent_cidr: 10.3.0.0/18
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.48.0/22
+          id: 16bd25da-6f14-459c-bfcd-1c49b38f662b
+          name: media-streaming-prd-data-eu-west-1a
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.3.8.0/21
-          id: 93e566e1-bf5e-495b-bfd1-02b544319fda
-          name: data-warehouse-prod-euw1-private-eu-west-1b
-          parent_cidr: 10.3.0.0/18
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.52.0/22
+          id: 3c6c7abd-4698-4bcd-be10-f1d099d2f127
+          name: media-streaming-prd-data-eu-west-1b
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.3.16.0/21
-          id: ee084ab4-c572-4981-a98f-f9eee61c5cd4
-          name: data-warehouse-prod-euw1-private-eu-west-1c
-          parent_cidr: 10.3.0.0/18
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.3.56.0/22
+          id: 1160f5bc-e8fb-471a-af03-5173a879be3d
+          name: media-streaming-prd-data-eu-west-1c
+          parent_cidr: 10.0.0.0/14
           metadata:
             az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-    shared-services:
-        - cidr: 10.64.0.0/24
-          id: c522f50a-65fa-4c40-8c9e-5531abeffd2d
-          name: transit-gateway-euw1
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.4.0.0/14
+          id: dcecfad1-f99b-40de-b28e-4d760426dc83
+          name: ml-training-prd-vpc
           metadata:
-            environment: shared
-            region: eu-west-1
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.64.1.0/26
-          id: d20fba99-23bb-4a1a-8889-0061291cdb17
-          name: dns-resolvers-euw1
+            environment: prd
+            product: ml-training
+            size: massive
+            team: data-science
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.4.0.0/16
+          id: 8573d460-254f-4f48-bee5-c60126cd6785
+          name: ml-training-prd-compute-eu-west-1a
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: shared
-            region: eu-west-1
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.64.16.0/20
-          id: 9c25541d-a3fb-4850-87c0-791003a08aee
-          name: vpn-clients
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.5.0.0/16
+          id: 68f7aa80-261c-40ae-baf5-f7eeead4ddb9
+          name: ml-training-prd-compute-eu-west-1b
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: shared
-            purpose: client VPN pool
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.64.4.0/22
-          id: 6a33bf76-a1eb-400c-90c2-873ec6843181
-          name: inspection-vpc-euw1
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.6.0.0/16
+          id: 3bcf8039-ec25-4ce9-96e9-b3b921a146c4
+          name: ml-training-prd-compute-eu-west-1c
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: shared
-            region: eu-west-1
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.64.8.0/22
-          id: 8a64ef01-8b77-4fd0-991c-127b2b3d3715
-          name: inspection-vpc-apse2
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.7.0.0/18
+          id: e619b886-63ad-4ffe-ab36-30b658fd2ff4
+          name: ml-training-prd-data-eu-west-1a
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: shared
-            region: ap-southeast-2
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.64.2.0/24
-          id: d4be1120-6076-4a31-a1e7-12518fd1db41
-          name: transit-gateway-apse2
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.7.64.0/18
+          id: 49e7cefc-680b-4248-8730-ae11279e1610
+          name: ml-training-prd-data-eu-west-1b
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: shared
-            region: ap-southeast-2
-            team: network
-          created_at: "2026-10-29T19:52:33Z"
-    staging:
-        - cidr: 10.32.0.0/17
-          id: 7cb54533-c24b-4ba7-8f90-54fcc390d670
-          name: payments-staging-vpc
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.7.128.0/18
+          id: 7a3dd83b-db3a-4668-bc68-676d25ad0b57
+          name: ml-training-prd-data-eu-west-1c
+          parent_cidr: 10.4.0.0/14
           metadata:
-            environment: staging
-            purpose: vpc
-            stack: infra-payments//staging
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.8.0.0/15
+          id: ba7bb9c0-6b80-49bc-a297-0893c859aaea
+          name: data-lake-prd-vpc
+          metadata:
+            environment: prd
+            product: data-lake
+            size: large
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.8.0.0/17
+          id: 9c362c2e-443f-42a7-8ffa-ec8573cd6e75
+          name: data-lake-prd-data-eu-west-1a
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.8.128.0/17
+          id: e356fafb-fc10-4717-bc99-5db835f28c77
+          name: data-lake-prd-data-eu-west-1b
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.9.0.0/17
+          id: d50c7bb6-c1d6-40b2-bd40-26d2775f42aa
+          name: data-lake-prd-data-eu-west-1c
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.9.128.0/19
+          id: 2c1ffd9d-9f84-46bd-aaed-374dab1a51c9
+          name: data-lake-prd-compute-eu-west-1a
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.9.160.0/19
+          id: 2afcbd7d-80b0-4f1d-8a59-ef13e756f5ae
+          name: data-lake-prd-compute-eu-west-1b
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.9.192.0/19
+          id: 8aec57ef-4dd5-4b31-a418-8f05cb784996
+          name: data-lake-prd-compute-eu-west-1c
+          parent_cidr: 10.8.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.10.0.0/15
+          id: 78fbc552-38b2-4015-a2c1-9f2c3ac64246
+          name: search-indexing-prd-vpc
+          metadata:
+            environment: prd
+            product: search-indexing
+            size: large
+            team: search
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.10.0.0/18
+          id: 618be8ed-9a11-4265-9e01-ed0ed4af04d4
+          name: search-indexing-prd-compute-eu-west-1a
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.10.64.0/18
+          id: 45c985b9-5879-43c0-9bb9-b4603cf869e6
+          name: search-indexing-prd-compute-eu-west-1b
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.10.128.0/18
+          id: 7e4cf1f1-a302-4670-a058-a41a7ec1fc77
+          name: search-indexing-prd-compute-eu-west-1c
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.10.192.0/18
+          id: 3de65985-bd1e-4af8-85b5-4463a62d9e52
+          name: search-indexing-prd-data-eu-west-1a
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.11.0.0/18
+          id: 962211b5-8f5b-4325-b847-71c4bda1744e
+          name: search-indexing-prd-data-eu-west-1b
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.11.64.0/18
+          id: b0af5d4c-b3fb-48f5-8418-dbd783bd5411
+          name: search-indexing-prd-data-eu-west-1c
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.11.128.0/24
+          id: b1845562-5397-48c3-ab57-ab76a0253e00
+          name: search-indexing-prd-public-eu-west-1a
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.11.129.0/24
+          id: 37d4429d-dbb6-479e-99f4-948b39695eb3
+          name: search-indexing-prd-public-eu-west-1b
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.11.130.0/24
+          id: 1c403f97-18d2-45ec-8471-96557c4ffce3
+          name: search-indexing-prd-public-eu-west-1c
+          parent_cidr: 10.10.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.12.0.0/15
+          id: 948af147-2d84-4848-abae-2011517e72a5
+          name: video-transcoding-prd-vpc
+          metadata:
+            environment: prd
+            product: video-transcoding
+            size: large
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.12.0.0/17
+          id: 312090a7-227f-4f76-a3c2-eb893c800601
+          name: video-transcoding-prd-compute-eu-west-1a
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.12.128.0/17
+          id: b2eca283-48b6-4350-a168-c88746a509c2
+          name: video-transcoding-prd-compute-eu-west-1b
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.0.0/17
+          id: a4b8a83f-12f0-4ed0-b4e3-a31392bd1fe5
+          name: video-transcoding-prd-compute-eu-west-1c
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.128.0/20
+          id: e8e3e980-27dc-449a-ba52-c40213eac7d5
+          name: video-transcoding-prd-data-eu-west-1a
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.144.0/20
+          id: 12144b51-7716-4b76-bec5-7d2e1d0d2611
+          name: video-transcoding-prd-data-eu-west-1b
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.160.0/20
+          id: afa4bd6f-7fc2-4933-b8e9-776698404904
+          name: video-transcoding-prd-data-eu-west-1c
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.176.0/22
+          id: 5e7c2651-3fad-453f-82a4-87ebfc41b5f3
+          name: video-transcoding-prd-public-eu-west-1a
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.180.0/22
+          id: 468bc7ab-290e-405c-a1d0-cbc2e56f3c82
+          name: video-transcoding-prd-public-eu-west-1b
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.13.184.0/22
+          id: f6e3214c-98c4-4b63-aa9a-6121086e9ce1
+          name: video-transcoding-prd-public-eu-west-1c
+          parent_cidr: 10.12.0.0/15
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.0.0/16
+          id: 170c4193-1b76-46f4-aafc-971eea22979b
+          name: log-archive-prd-vpc
+          metadata:
+            environment: prd
+            product: log-archive
+            size: large
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.0.0/18
+          id: 8d6a484d-f09a-4075-9cd6-7be1ad48fa77
+          name: log-archive-prd-data-eu-west-1a
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.64.0/18
+          id: 26beae39-df12-4298-96d2-d52a1f35f775
+          name: log-archive-prd-data-eu-west-1b
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.128.0/18
+          id: 90c6e8cd-24e2-445c-85cf-1d6bf9073901
+          name: log-archive-prd-data-eu-west-1c
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.192.0/22
+          id: ae32a4cf-4f98-4662-aedd-a62bf898f889
+          name: log-archive-prd-compute-eu-west-1a
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.196.0/22
+          id: 8e6eed88-7f17-4f69-8862-03896c9f5be0
+          name: log-archive-prd-compute-eu-west-1b
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.14.200.0/22
+          id: 902e1008-1cc6-455d-afd7-4dd2f2201c66
+          name: log-archive-prd-compute-eu-west-1c
+          parent_cidr: 10.14.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.0.0/16
+          id: 86c7f716-e864-4a0f-b952-d7997f607a61
+          name: realtime-messaging-prd-vpc
+          metadata:
+            environment: prd
+            product: realtime-messaging
+            size: large
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.0.0/18
+          id: 9c9baa74-7ba3-4274-8315-7c30893ef19f
+          name: realtime-messaging-prd-compute-eu-west-1a
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.64.0/18
+          id: 415ddcd5-0c68-4c61-8ca0-243f3f099d5a
+          name: realtime-messaging-prd-compute-eu-west-1b
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.128.0/18
+          id: 9c67e114-2d07-483b-927b-4e50b3bb6e12
+          name: realtime-messaging-prd-compute-eu-west-1c
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.192.0/21
+          id: dde3b026-7993-4e71-9ac0-a0b8abb00f1a
+          name: realtime-messaging-prd-data-eu-west-1a
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.200.0/21
+          id: 48772e23-115b-40f9-acab-3e761eb4d951
+          name: realtime-messaging-prd-data-eu-west-1b
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.208.0/21
+          id: d5ce8845-7763-4e3e-9b9a-4836bfe0f508
+          name: realtime-messaging-prd-data-eu-west-1c
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.216.0/22
+          id: 125604f4-c055-4e6d-9fdc-2e2430dbdf9f
+          name: realtime-messaging-prd-public-eu-west-1a
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.220.0/22
+          id: 28767127-2ff7-44a7-8ee8-a8e8053e2392
+          name: realtime-messaging-prd-public-eu-west-1b
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.15.224.0/22
+          id: 1f2467dd-85ae-4055-9854-0e296b2df87a
+          name: realtime-messaging-prd-public-eu-west-1c
+          parent_cidr: 10.15.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.0.0/16
+          id: 89f924ce-9705-4430-a222-df0d5dbbd0cc
+          name: web-storefront-prd-vpc
+          metadata:
+            environment: prd
+            product: web-storefront
+            size: large
+            team: commerce
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.0.0/19
+          id: 49cadbd7-db2d-43ec-9ccd-c2c0e1c9fc81
+          name: web-storefront-prd-compute-eu-west-1a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.32.0/19
+          id: cb8b414e-9790-42ef-b8d4-5003d71f4c2e
+          name: web-storefront-prd-compute-eu-west-1b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.64.0/19
+          id: 7c8c6f77-4b3e-4c40-b0d9-f23666abe14a
+          name: web-storefront-prd-compute-eu-west-1c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.96.0/20
+          id: ffb6d9d5-2dca-4cbb-bda3-ef4452bad170
+          name: web-storefront-prd-public-eu-west-1a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.112.0/20
+          id: 6e4cde8f-6561-4eee-b67a-bdc2824c168c
+          name: web-storefront-prd-public-eu-west-1b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.128.0/20
+          id: 33c1a2bd-f701-4c0b-be09-a3bc29c05b86
+          name: web-storefront-prd-public-eu-west-1c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.144.0/22
+          id: f14f4781-e782-47b6-9056-8bc54e0f281c
+          name: web-storefront-prd-data-eu-west-1a
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.148.0/22
+          id: fce2fd8f-a1dc-48c8-8604-123b9d8623e2
+          name: web-storefront-prd-data-eu-west-1b
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.16.152.0/22
+          id: 39f109a2-dc04-43f2-bf9a-8e30c63bee32
+          name: web-storefront-prd-data-eu-west-1c
+          parent_cidr: 10.16.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.0.0/18
+          id: 195942ce-381b-4be0-9944-08c0cc60befc
+          name: analytics-dashboards-prd-vpc
+          metadata:
+            environment: prd
+            product: analytics-dashboards
+            size: medium
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.0.0/21
+          id: d2b9b03a-308f-4f58-af78-fc2edb135119
+          name: analytics-dashboards-prd-data-eu-west-1a
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.8.0/21
+          id: 96c73d87-859d-4ec1-80f7-091a8beb1e6e
+          name: analytics-dashboards-prd-data-eu-west-1b
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.16.0/21
+          id: d5981ff8-8af2-4d82-ace3-3c7155747e6a
+          name: analytics-dashboards-prd-data-eu-west-1c
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.24.0/22
+          id: 0703d3e8-fd36-4af6-aa27-cc1112165b5b
+          name: analytics-dashboards-prd-compute-eu-west-1a
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.28.0/22
+          id: cf66bf24-823d-4ed0-b3ea-22d234d8c15c
+          name: analytics-dashboards-prd-compute-eu-west-1b
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.32.0/22
+          id: c6f71a1a-5c16-4474-b53d-ee6e836afc8d
+          name: analytics-dashboards-prd-compute-eu-west-1c
+          parent_cidr: 10.17.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.64.0/18
+          id: 87b8249d-a4c7-442b-a198-f285fe2d3838
+          name: cicd-automation-prd-vpc
+          metadata:
+            environment: prd
+            product: cicd-automation
+            size: medium
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.64.0/20
+          id: b2cef42b-c60c-4dde-9d30-d83113fa064c
+          name: cicd-automation-prd-compute-eu-west-1a
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.80.0/20
+          id: 54bfcec1-e643-4300-95c3-ac37c67e8807
+          name: cicd-automation-prd-compute-eu-west-1b
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.96.0/20
+          id: e27fbc56-0667-4faf-80ba-2abad823518c
+          name: cicd-automation-prd-compute-eu-west-1c
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.112.0/24
+          id: f4df224c-ee9a-4f4e-a5e2-fe229c86ece4
+          name: cicd-automation-prd-data-eu-west-1a
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.113.0/24
+          id: 807d2c87-b01e-4062-baf1-c9c8eb803604
+          name: cicd-automation-prd-data-eu-west-1b
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.114.0/24
+          id: 13a7967d-646a-489c-903f-75849642bdb9
+          name: cicd-automation-prd-data-eu-west-1c
+          parent_cidr: 10.17.64.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.128.0/18
+          id: 9be54509-71aa-49c9-93b8-49deb8dad6a2
+          name: customer-api-prd-vpc
+          metadata:
+            environment: prd
+            product: customer-api
+            size: medium
+            team: platform-api
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.128.0/21
+          id: 4927c768-1b32-4621-b3cc-90d42e322b7b
+          name: customer-api-prd-compute-eu-west-1a
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.136.0/21
+          id: 034c16b4-8018-4838-ac36-9a8805b1b90b
+          name: customer-api-prd-compute-eu-west-1b
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.144.0/21
+          id: 03bcfafd-672c-4c81-b0f5-4c87d24a878f
+          name: customer-api-prd-compute-eu-west-1c
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.152.0/23
+          id: 90eff51d-15fe-4ca0-aef4-9e00a7b65637
+          name: customer-api-prd-data-eu-west-1a
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.154.0/23
+          id: e67801ed-bf64-4eab-b642-4889d499013b
+          name: customer-api-prd-data-eu-west-1b
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.156.0/23
+          id: 316b3d2f-043e-4b35-ac53-016d5c3f02c6
+          name: customer-api-prd-data-eu-west-1c
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.158.0/23
+          id: 9626ab98-4224-4157-85f9-9c7b78928d1c
+          name: customer-api-prd-public-eu-west-1a
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.160.0/23
+          id: 3c53f47b-d3e7-4bca-a6e0-fd932b03362b
+          name: customer-api-prd-public-eu-west-1b
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.162.0/23
+          id: 4113a948-57ec-46d6-a821-03b3eaf2c65e
+          name: customer-api-prd-public-eu-west-1c
+          parent_cidr: 10.17.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.192.0/18
+          id: 06facff4-4ef2-441a-9332-6b8c369f5570
+          name: mobile-backend-prd-vpc
+          metadata:
+            environment: prd
+            product: mobile-backend
+            size: medium
+            team: mobile
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.192.0/21
+          id: 757ec91a-55f3-4706-8f3a-f52f3909c4f7
+          name: mobile-backend-prd-compute-eu-west-1a
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.200.0/21
+          id: f1fbcf45-5348-4a8c-af10-1615a934faf9
+          name: mobile-backend-prd-compute-eu-west-1b
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.208.0/21
+          id: 0e4fe511-937e-4a7e-8bef-b02789da71b9
+          name: mobile-backend-prd-compute-eu-west-1c
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.216.0/23
+          id: a8d83e8d-3b1d-4399-8255-406d45101f33
+          name: mobile-backend-prd-data-eu-west-1a
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.218.0/23
+          id: 28a29ade-dcfb-4fdf-97e6-c7428fa7b073
+          name: mobile-backend-prd-data-eu-west-1b
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.220.0/23
+          id: f1b9e013-6661-4c83-92ae-03623c41e38c
+          name: mobile-backend-prd-data-eu-west-1c
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.222.0/24
+          id: 3f044abe-34c8-4f1b-a09d-dc3f6ec94caa
+          name: mobile-backend-prd-public-eu-west-1a
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.223.0/24
+          id: df046c56-600b-42ce-858c-95aaec564f29
+          name: mobile-backend-prd-public-eu-west-1b
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.17.224.0/24
+          id: cc3f0d4f-73e0-43f2-a4dd-fd86a69dbb5b
+          name: mobile-backend-prd-public-eu-west-1c
+          parent_cidr: 10.17.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.0.0/18
+          id: 140d1ec3-018e-4509-929b-e3c50be922ed
+          name: payments-gateway-prd-vpc
+          metadata:
+            environment: prd
+            product: payments-gateway
+            size: medium
             team: payments
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.0.0/20
-          id: 00243ccd-cf26-4a2f-a085-ba8446b30d08
-          name: payments-staging-private-eu-west-1a
-          parent_cidr: 10.32.0.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.0.0/21
+          id: 502590f9-3b18-449f-8c18-daee38dabac4
+          name: payments-gateway-prd-compute-eu-west-1a
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.16.0/20
-          id: 39f85899-3537-4d2e-9a0b-855e3b5cf4e4
-          name: payments-staging-private-eu-west-1b
-          parent_cidr: 10.32.0.0/17
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.8.0/21
+          id: 4befb13f-d87a-4540-8d03-bf5c54240885
+          name: payments-gateway-prd-compute-eu-west-1b
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.32.0/20
-          id: 87d2857f-a05b-45f7-9644-7ed4877608fd
-          name: payments-staging-private-eu-west-1c
-          parent_cidr: 10.32.0.0/17
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.16.0/21
+          id: 55c253d9-b0d7-4802-ab8a-8d6433d6545e
+          name: payments-gateway-prd-compute-eu-west-1c
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.48.0/24
-          id: ef60f1eb-9592-4c45-b10e-2f808044bafe
-          name: payments-staging-public-eu-west-1a
-          parent_cidr: 10.32.0.0/17
-          metadata:
-            az: eu-west-1a
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.49.0/24
-          id: 121fb86d-2fd0-4c68-acf1-1d2edd022172
-          name: payments-staging-public-eu-west-1b
-          parent_cidr: 10.32.0.0/17
-          metadata:
-            az: eu-west-1b
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.50.0/24
-          id: fdf2b854-3bdb-4379-94e0-b323a9d725d2
-          name: payments-staging-public-eu-west-1c
-          parent_cidr: 10.32.0.0/17
-          metadata:
-            az: eu-west-1c
-            tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.51.0/24
-          id: efc2d88e-7f6d-453b-924e-75cacb0308c1
-          name: payments-staging-data-eu-west-1a
-          parent_cidr: 10.32.0.0/17
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.24.0/22
+          id: b58b0c9e-f661-405f-8315-fef42a995b13
+          name: payments-gateway-prd-data-eu-west-1a
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1a
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.52.0/24
-          id: ec9536cc-7098-4c83-8865-84a8d72d6b63
-          name: payments-staging-data-eu-west-1b
-          parent_cidr: 10.32.0.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.28.0/22
+          id: 571db9dc-190a-42b2-890f-def9ddef4d37
+          name: payments-gateway-prd-data-eu-west-1b
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1b
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.53.0/24
-          id: d149c0e5-df67-4e81-8a1b-b7c4cb3d3bb3
-          name: payments-staging-data-eu-west-1c
-          parent_cidr: 10.32.0.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.32.0/22
+          id: 3e1bd021-d1d0-4544-ad9a-01b4aeb40f33
+          name: payments-gateway-prd-data-eu-west-1c
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1c
             tier: data
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.128.0/17
-          id: c9c015b2-3271-4d99-8c50-045cb92d6fcf
-          name: platform-eks-staging-vpc
-          metadata:
-            environment: staging
-            purpose: vpc
-            stack: infra-platform//eks/staging
-            team: platform
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.128.0/20
-          id: 7499bcf0-9ea9-410f-8363-13b9229e4417
-          name: platform-eks-staging-private-eu-west-1a
-          parent_cidr: 10.32.128.0/17
-          metadata:
-            az: eu-west-1a
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.144.0/20
-          id: bc5ca9e2-b096-4b19-96b0-facc23070bf5
-          name: platform-eks-staging-private-eu-west-1b
-          parent_cidr: 10.32.128.0/17
-          metadata:
-            az: eu-west-1b
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.160.0/20
-          id: 66292e9f-c088-46f6-9edd-ccd7c661f5cc
-          name: platform-eks-staging-private-eu-west-1c
-          parent_cidr: 10.32.128.0/17
-          metadata:
-            az: eu-west-1c
-            tier: private
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.176.0/24
-          id: 6de9de4a-7bb5-4561-8692-f92472f8d7e2
-          name: platform-eks-staging-public-eu-west-1a
-          parent_cidr: 10.32.128.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.36.0/24
+          id: c6d5823b-e220-4bcc-a035-2a7265a1a32d
+          name: payments-gateway-prd-public-eu-west-1a
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1a
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.177.0/24
-          id: 7e07eb16-c269-4845-ae21-c5b634d172c7
-          name: platform-eks-staging-public-eu-west-1b
-          parent_cidr: 10.32.128.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.37.0/24
+          id: eeff9b0c-1d00-4897-bbc2-29627e0bd307
+          name: payments-gateway-prd-public-eu-west-1b
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1b
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
-        - cidr: 10.32.178.0/24
-          id: e15deccd-e8c8-4435-89e8-d4d10406c87f
-          name: platform-eks-staging-public-eu-west-1c
-          parent_cidr: 10.32.128.0/17
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.38.0/24
+          id: 38bf3634-aa8b-482d-b4ed-40223e611d65
+          name: payments-gateway-prd-public-eu-west-1c
+          parent_cidr: 10.18.0.0/18
           metadata:
             az: eu-west-1c
             tier: public
-          created_at: "2026-10-29T19:52:33Z"
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.64.0/20
+          id: ded3d43c-5115-4145-a2ef-a150f03d5346
+          name: identity-auth-prd-vpc
+          metadata:
+            environment: prd
+            product: identity-auth
+            size: small
+            team: identity
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.64.0/23
+          id: 5fca8ffb-911c-4af0-903b-b0ea675504fc
+          name: identity-auth-prd-compute-eu-west-1a
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.66.0/23
+          id: f54e2da5-3fa1-4d5b-b9c3-00fac0a3e048
+          name: identity-auth-prd-compute-eu-west-1b
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.68.0/23
+          id: b4b52d05-a5a9-4d1d-b630-ad12cf557e69
+          name: identity-auth-prd-compute-eu-west-1c
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.70.0/24
+          id: c7b11661-8e24-4038-bb0c-a1673aa9df77
+          name: identity-auth-prd-data-eu-west-1a
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.71.0/24
+          id: 20ab759d-4085-4ac9-839f-30c391b17d2e
+          name: identity-auth-prd-data-eu-west-1b
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.72.0/24
+          id: d315f39b-46a7-4358-af9c-2564fe2352e2
+          name: identity-auth-prd-data-eu-west-1c
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.73.0/25
+          id: eb5fc3c6-64e7-40c9-b928-0c5b7be453a5
+          name: identity-auth-prd-public-eu-west-1a
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.73.128/25
+          id: 878b6afe-05f8-40ec-b0ba-9aac93887cd9
+          name: identity-auth-prd-public-eu-west-1b
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.74.0/25
+          id: 3bf5a170-0529-4f99-87eb-7b1a36134622
+          name: identity-auth-prd-public-eu-west-1c
+          parent_cidr: 10.18.64.0/20
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.80.0/21
+          id: 3a38c218-6c52-4397-ba73-48807ecf9a18
+          name: email-delivery-prd-vpc
+          metadata:
+            environment: prd
+            product: email-delivery
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.80.0/24
+          id: e4477dce-efeb-402e-be78-d6c4e059d943
+          name: email-delivery-prd-compute-eu-west-1a
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.81.0/24
+          id: f22ada77-cabe-47a3-aa53-21d4c92c62b8
+          name: email-delivery-prd-compute-eu-west-1b
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.82.0/24
+          id: 10072d01-70f0-4f8d-9211-454f2be32091
+          name: email-delivery-prd-compute-eu-west-1c
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.83.0/25
+          id: 744abd05-4397-41cc-86bb-5645d76e0a79
+          name: email-delivery-prd-public-eu-west-1a
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.83.128/25
+          id: 1c5099ab-d23c-4272-838d-6cbea23eec9d
+          name: email-delivery-prd-public-eu-west-1b
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.84.0/25
+          id: 66e0eed1-4cdf-4dab-91ee-02b7377f9bbf
+          name: email-delivery-prd-public-eu-west-1c
+          parent_cidr: 10.18.80.0/21
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.88.0/21
+          id: 071d16ac-52b9-4d29-8527-216250f40fd4
+          name: notification-service-prd-vpc
+          metadata:
+            environment: prd
+            product: notification-service
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.88.0/24
+          id: 4dbddd6f-0667-4a9c-8171-e45041c8442e
+          name: notification-service-prd-compute-eu-west-1a
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.89.0/24
+          id: e1de6f5f-4a6b-414a-9667-3eec9c184e02
+          name: notification-service-prd-compute-eu-west-1b
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.90.0/24
+          id: b67170a0-1556-43ac-b778-41c021bf3227
+          name: notification-service-prd-compute-eu-west-1c
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.91.0/25
+          id: 6705bb6b-b0f1-4c4c-acad-3cdd447d19ca
+          name: notification-service-prd-data-eu-west-1a
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.91.128/25
+          id: 287b0e11-2d1f-460c-a085-8e11419c8c9d
+          name: notification-service-prd-data-eu-west-1b
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.92.0/25
+          id: be8e457b-fd4c-47cb-b090-1eb2394b428c
+          name: notification-service-prd-data-eu-west-1c
+          parent_cidr: 10.18.88.0/21
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.96.0/22
+          id: 49123b2e-d4c6-43e1-a173-e89d437f2ec2
+          name: feature-flags-prd-vpc
+          metadata:
+            environment: prd
+            product: feature-flags
+            size: small
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.96.0/25
+          id: 1f8780eb-b6b8-4158-9cf3-3921f730444a
+          name: feature-flags-prd-compute-eu-west-1a
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.96.128/25
+          id: 4183cff2-2cc3-451e-9f71-6385d61d4865
+          name: feature-flags-prd-compute-eu-west-1b
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.97.0/25
+          id: a817226e-851a-44e3-b5e8-395f9c390f38
+          name: feature-flags-prd-compute-eu-west-1c
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.97.128/26
+          id: c1d43947-4a66-4954-b02a-15ee8d0c2e81
+          name: feature-flags-prd-data-eu-west-1a
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.97.192/26
+          id: 0b794188-36c8-4ca7-9c38-be0fc806b618
+          name: feature-flags-prd-data-eu-west-1b
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.98.0/26
+          id: bd8a5569-5772-45c6-9298-b1d4732dcba1
+          name: feature-flags-prd-data-eu-west-1c
+          parent_cidr: 10.18.96.0/22
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.0/23
+          id: 22765762-0065-4cf5-952d-715f7b6b5d28
+          name: accounting-prd-vpc
+          metadata:
+            environment: prd
+            product: accounting
+            size: tiny
+            team: finance
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.0/26
+          id: ee826a9f-1c05-4286-8091-827ba3f6ebf6
+          name: accounting-prd-compute-eu-west-1a
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.64/26
+          id: 4c7834c8-283b-46d1-96d7-91b276e3a9e5
+          name: accounting-prd-compute-eu-west-1b
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.128/26
+          id: b5bcd4e8-92e8-4fd1-b011-10ce5907458f
+          name: accounting-prd-compute-eu-west-1c
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.192/27
+          id: 23dfb077-ee7c-498d-b64c-2246ab1880e9
+          name: accounting-prd-data-eu-west-1a
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.100.224/27
+          id: de961b3b-f7c4-4737-a81b-31ecd3162c82
+          name: accounting-prd-data-eu-west-1b
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.101.0/27
+          id: 552b9fc1-156d-432a-a2b6-b11e1b66c134
+          name: accounting-prd-data-eu-west-1c
+          parent_cidr: 10.18.100.0/23
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.0/24
+          id: 063ae5d5-86df-48d7-94ac-52d1d7b86309
+          name: hr-portal-prd-vpc
+          metadata:
+            environment: prd
+            product: hr-portal
+            size: tiny
+            team: people
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.0/27
+          id: 841a534e-b482-4168-b168-3c79617d53bd
+          name: hr-portal-prd-compute-eu-west-1a
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.32/27
+          id: eca782c5-0b7a-4c67-a3ee-a4921c52ceb6
+          name: hr-portal-prd-compute-eu-west-1b
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.64/27
+          id: d4407427-aba5-41ee-a912-39d876f66006
+          name: hr-portal-prd-compute-eu-west-1c
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.96/28
+          id: 453eb66a-665c-493d-a284-31d1612bdd73
+          name: hr-portal-prd-data-eu-west-1a
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.112/28
+          id: f89d8c9e-f7e9-46c2-99b0-e2f99b5be073
+          name: hr-portal-prd-data-eu-west-1b
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.102.128/28
+          id: 5b046820-07b7-4089-a0c9-dacbcdc4c9bc
+          name: hr-portal-prd-data-eu-west-1c
+          parent_cidr: 10.18.102.0/24
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.0/24
+          id: 04a2ee5b-5224-4b25-a628-6073b4cebe52
+          name: status-page-prd-vpc
+          metadata:
+            environment: prd
+            product: status-page
+            size: tiny
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.0/27
+          id: d7a57de8-ce44-458f-95d7-0a199078db1e
+          name: status-page-prd-public-eu-west-1a
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.32/27
+          id: dc4f1fc4-ec3d-4aae-b541-c7134f876836
+          name: status-page-prd-public-eu-west-1b
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.64/27
+          id: b48ebb33-be90-46a3-9868-4a6c2f0b07ac
+          name: status-page-prd-public-eu-west-1c
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.96/28
+          id: 9b714ecc-85a1-4afe-a274-50fd2c3cb7c0
+          name: status-page-prd-compute-eu-west-1a
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.112/28
+          id: 201f1688-27b2-4599-85d6-8f2aebd42b67
+          name: status-page-prd-compute-eu-west-1b
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.18.103.128/28
+          id: 3157f582-fba7-4a01-b3ba-f816ad257a38
+          name: status-page-prd-compute-eu-west-1c
+          parent_cidr: 10.18.103.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+    staging:
+        - cidr: 10.48.0.0/16
+          id: 4901f924-6f81-41ca-a15f-fdc7519d7238
+          name: media-streaming-stg-vpc
+          metadata:
+            environment: stg
+            product: media-streaming
+            size: massive
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.0.0/18
+          id: daebd131-8383-4e57-81ec-2f7076781159
+          name: media-streaming-stg-compute-eu-west-1a
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.64.0/18
+          id: ceda76a9-14ca-4b16-a517-5535f617a32e
+          name: media-streaming-stg-compute-eu-west-1b
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.128.0/18
+          id: a830eee2-6a7b-48fa-acb4-c6ce4025c743
+          name: media-streaming-stg-compute-eu-west-1c
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.192.0/22
+          id: 84f6d0e3-ae72-4de0-872c-303418290831
+          name: media-streaming-stg-public-eu-west-1a
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.196.0/22
+          id: 8b60ba04-f3bb-4ac1-bb2e-9becf29cc729
+          name: media-streaming-stg-public-eu-west-1b
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.200.0/22
+          id: a924b6b0-beb3-4210-a126-066c7e70b445
+          name: media-streaming-stg-public-eu-west-1c
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.204.0/24
+          id: a48f8009-6e45-42e4-94e0-0c73b9807f26
+          name: media-streaming-stg-data-eu-west-1a
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.205.0/24
+          id: ebe42254-af19-4936-b6e6-b25958508d25
+          name: media-streaming-stg-data-eu-west-1b
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.48.206.0/24
+          id: 3fa1329c-9f97-4d31-bcfb-bcb1cb466ace
+          name: media-streaming-stg-data-eu-west-1c
+          parent_cidr: 10.48.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.0.0/16
+          id: 0eba1152-779d-4beb-aada-9537e02f652d
+          name: ml-training-stg-vpc
+          metadata:
+            environment: stg
+            product: ml-training
+            size: massive
+            team: data-science
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.0.0/18
+          id: dce1abb8-79af-4079-b273-e30e83c2e529
+          name: ml-training-stg-compute-eu-west-1a
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.64.0/18
+          id: d95b77db-231d-40b1-a98d-e9cd32d12242
+          name: ml-training-stg-compute-eu-west-1b
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.128.0/18
+          id: 363b08c3-42e9-49df-a768-dede4915fecc
+          name: ml-training-stg-compute-eu-west-1c
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.192.0/20
+          id: 6dbea418-dbfa-4e18-aa7c-498d9bb75d7a
+          name: ml-training-stg-data-eu-west-1a
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.208.0/20
+          id: 80748658-ce62-4a2b-92c7-7a8409259b26
+          name: ml-training-stg-data-eu-west-1b
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.49.224.0/20
+          id: 4eacf2b8-3fd7-4ef7-83fd-ecbc4a0618c4
+          name: ml-training-stg-data-eu-west-1c
+          parent_cidr: 10.49.0.0/16
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.0.0/17
+          id: 2e0f4fe2-5c7b-4c8a-bb9a-81879954cb67
+          name: data-lake-stg-vpc
+          metadata:
+            environment: stg
+            product: data-lake
+            size: large
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.0.0/19
+          id: a7246d3f-16c7-4746-99d8-8aef7672b224
+          name: data-lake-stg-data-eu-west-1a
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.32.0/19
+          id: 13b3b1c3-b7a2-4e2a-960d-c77787044bbc
+          name: data-lake-stg-data-eu-west-1b
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.64.0/19
+          id: 270eef33-95db-4751-a954-c94774927df4
+          name: data-lake-stg-data-eu-west-1c
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.96.0/21
+          id: ac8dff77-34a4-4f55-ac10-c3cca712dcc6
+          name: data-lake-stg-compute-eu-west-1a
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.104.0/21
+          id: 50fc7d28-f043-4ef2-91f9-833a7bde00ac
+          name: data-lake-stg-compute-eu-west-1b
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.112.0/21
+          id: 664b1faa-9b76-4d2f-a0f4-a859daa56825
+          name: data-lake-stg-compute-eu-west-1c
+          parent_cidr: 10.50.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.128.0/17
+          id: 6cee91c4-c080-481f-b329-0f8d9b2b6b8d
+          name: search-indexing-stg-vpc
+          metadata:
+            environment: stg
+            product: search-indexing
+            size: large
+            team: search
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.128.0/20
+          id: 9de267da-86de-47d0-936b-584288786bb6
+          name: search-indexing-stg-compute-eu-west-1a
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.144.0/20
+          id: 7ab5fd51-d41a-40c7-b153-de4832fb35f7
+          name: search-indexing-stg-compute-eu-west-1b
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.160.0/20
+          id: b6471f06-3599-4d7e-b38c-50c29f871ef1
+          name: search-indexing-stg-compute-eu-west-1c
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.176.0/20
+          id: 423aa551-c907-4f40-bc17-9eedd8de89eb
+          name: search-indexing-stg-data-eu-west-1a
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.192.0/20
+          id: 6724b528-9d3a-4639-8cf4-dfe1911ae618
+          name: search-indexing-stg-data-eu-west-1b
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.208.0/20
+          id: 4534dc61-51ae-430b-9d6e-9c02edee0d98
+          name: search-indexing-stg-data-eu-west-1c
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.224.0/26
+          id: 0ec363de-1e92-425c-8900-24a9372545ed
+          name: search-indexing-stg-public-eu-west-1a
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.224.64/26
+          id: 41fa8079-2412-450b-97ca-ced24767e05e
+          name: search-indexing-stg-public-eu-west-1b
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.50.224.128/26
+          id: 3c7d234c-af8b-44b2-9f6a-3600c2440a9f
+          name: search-indexing-stg-public-eu-west-1c
+          parent_cidr: 10.50.128.0/17
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.0.0/17
+          id: 298b3030-3b42-47c8-be9b-bf4e827175a9
+          name: video-transcoding-stg-vpc
+          metadata:
+            environment: stg
+            product: video-transcoding
+            size: large
+            team: media
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.0.0/19
+          id: c9489bc4-5b5b-484b-bc29-3bd31945fa12
+          name: video-transcoding-stg-compute-eu-west-1a
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.32.0/19
+          id: 3d1decb5-e3fa-43d3-8724-b93de09c39ea
+          name: video-transcoding-stg-compute-eu-west-1b
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.64.0/19
+          id: d54654be-ad7d-4e77-b7e6-6006d2f72cdc
+          name: video-transcoding-stg-compute-eu-west-1c
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.96.0/22
+          id: a22f5f6c-10af-4215-a1eb-bdb24a355c5f
+          name: video-transcoding-stg-data-eu-west-1a
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.100.0/22
+          id: 6e26b851-c84f-4468-97e9-d99aae477f53
+          name: video-transcoding-stg-data-eu-west-1b
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.104.0/22
+          id: 2648214a-e163-48e2-94ea-40fb63fc2a44
+          name: video-transcoding-stg-data-eu-west-1c
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.108.0/24
+          id: e475f2ef-07e1-44b1-aa73-2b6dfbd94e95
+          name: video-transcoding-stg-public-eu-west-1a
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.109.0/24
+          id: 9a8c473b-bf4a-41ec-887b-24ada2f2002d
+          name: video-transcoding-stg-public-eu-west-1b
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.110.0/24
+          id: 43603874-1342-4e22-940e-65ee9fd7d160
+          name: video-transcoding-stg-public-eu-west-1c
+          parent_cidr: 10.51.0.0/17
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.128.0/18
+          id: c8b14367-afef-44b8-913d-41e750dd3489
+          name: log-archive-stg-vpc
+          metadata:
+            environment: stg
+            product: log-archive
+            size: large
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.128.0/20
+          id: cf15b9b2-a6e8-49f9-a276-6ca2c16fce91
+          name: log-archive-stg-data-eu-west-1a
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.144.0/20
+          id: 4c351f94-c7e2-4239-baf3-0307c667c957
+          name: log-archive-stg-data-eu-west-1b
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.160.0/20
+          id: ebb4c9a3-6633-4132-ba80-c8ef3ea088e9
+          name: log-archive-stg-data-eu-west-1c
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.176.0/24
+          id: d5cca77a-a3c5-4940-8d7f-3bc0bb5986c2
+          name: log-archive-stg-compute-eu-west-1a
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.177.0/24
+          id: b96659bc-2c42-43b1-b5f3-04c97bca2054
+          name: log-archive-stg-compute-eu-west-1b
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.178.0/24
+          id: c297d8c5-cafc-4519-bfce-dde4a65cbb08
+          name: log-archive-stg-compute-eu-west-1c
+          parent_cidr: 10.51.128.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.192.0/18
+          id: 96249ef2-82d4-4f22-ad14-1f928f723845
+          name: realtime-messaging-stg-vpc
+          metadata:
+            environment: stg
+            product: realtime-messaging
+            size: large
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.192.0/20
+          id: 5f622bc0-6a79-4fdb-9ccd-d89a659de8b5
+          name: realtime-messaging-stg-compute-eu-west-1a
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.208.0/20
+          id: bbe02da1-7191-4f24-aea6-f4299741cfa1
+          name: realtime-messaging-stg-compute-eu-west-1b
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.224.0/20
+          id: be340c14-6d01-4e2b-b458-b2cdd32d7722
+          name: realtime-messaging-stg-compute-eu-west-1c
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.240.0/23
+          id: abc8a414-f5fb-4ce4-8e04-9976c8fe422a
+          name: realtime-messaging-stg-data-eu-west-1a
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.242.0/23
+          id: a4d9cf20-7369-42fd-b590-8db49ce2ec37
+          name: realtime-messaging-stg-data-eu-west-1b
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.244.0/23
+          id: b200d079-eaa1-4a0e-aca1-c84dffd83625
+          name: realtime-messaging-stg-data-eu-west-1c
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.246.0/24
+          id: 09c931cc-075f-4074-a644-274b4565bc29
+          name: realtime-messaging-stg-public-eu-west-1a
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.247.0/24
+          id: a017c142-d89e-41c3-9cf4-de28c35d1160
+          name: realtime-messaging-stg-public-eu-west-1b
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.51.248.0/24
+          id: 277392e4-cde1-4f64-a491-30f679554682
+          name: realtime-messaging-stg-public-eu-west-1c
+          parent_cidr: 10.51.192.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.0.0/18
+          id: f6328f69-2d67-47fd-94a6-c2dbb3b8feda
+          name: web-storefront-stg-vpc
+          metadata:
+            environment: stg
+            product: web-storefront
+            size: large
+            team: commerce
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.0.0/21
+          id: f5ce76e0-fc78-4f32-98b3-9bea0fdfb1c5
+          name: web-storefront-stg-compute-eu-west-1a
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.8.0/21
+          id: b2bf5486-707a-4c6f-be62-2adadeeea651
+          name: web-storefront-stg-compute-eu-west-1b
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.16.0/21
+          id: 82ffa33a-b658-4f84-acc9-3f750d076eae
+          name: web-storefront-stg-compute-eu-west-1c
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.24.0/22
+          id: d35c028f-5ea8-4558-8764-f58965498ffb
+          name: web-storefront-stg-public-eu-west-1a
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.28.0/22
+          id: ccd68709-dc4f-410e-acfc-4ce63914f4c9
+          name: web-storefront-stg-public-eu-west-1b
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.32.0/22
+          id: 4f0eede0-4fbc-454d-8a91-46161dc5ebac
+          name: web-storefront-stg-public-eu-west-1c
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.36.0/24
+          id: 1aa3dd52-90cf-42c2-a84c-241f2c676575
+          name: web-storefront-stg-data-eu-west-1a
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.37.0/24
+          id: a44a66c3-5f25-4c40-90cc-9bff2d13cf25
+          name: web-storefront-stg-data-eu-west-1b
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.38.0/24
+          id: ea914d71-4273-4e05-b79f-1e8c4762433b
+          name: web-storefront-stg-data-eu-west-1c
+          parent_cidr: 10.52.0.0/18
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.64.0/20
+          id: 70545e66-fe43-45cc-8e3e-130991473b72
+          name: analytics-dashboards-stg-vpc
+          metadata:
+            environment: stg
+            product: analytics-dashboards
+            size: medium
+            team: data-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.64.0/23
+          id: d52040d1-a0ee-4cf4-b5fa-562b2bfff4dc
+          name: analytics-dashboards-stg-data-eu-west-1a
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.66.0/23
+          id: 04567c69-1106-451a-b292-c86b2d4eebdb
+          name: analytics-dashboards-stg-data-eu-west-1b
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.68.0/23
+          id: e72a8f4a-1bb1-44df-b634-22856e781e8a
+          name: analytics-dashboards-stg-data-eu-west-1c
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.70.0/24
+          id: 3f9ce50e-1575-45b9-b247-5d382b11b11b
+          name: analytics-dashboards-stg-compute-eu-west-1a
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.71.0/24
+          id: 4dc6144a-40ac-456b-930b-e675e0949405
+          name: analytics-dashboards-stg-compute-eu-west-1b
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.72.0/24
+          id: b8b73662-9dc5-4a75-95dd-6abc13439880
+          name: analytics-dashboards-stg-compute-eu-west-1c
+          parent_cidr: 10.52.64.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.80.0/20
+          id: 64b74fe6-b9ba-418d-bbca-f9af3e8da1b0
+          name: cicd-automation-stg-vpc
+          metadata:
+            environment: stg
+            product: cicd-automation
+            size: medium
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.80.0/22
+          id: 32ba911e-55c4-4469-9ece-21cc36c89ebe
+          name: cicd-automation-stg-compute-eu-west-1a
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.84.0/22
+          id: 0e09356e-3457-489f-86cb-c76435033ae7
+          name: cicd-automation-stg-compute-eu-west-1b
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.88.0/22
+          id: 3c4455e7-b1da-4952-a3f4-7dc406401f9c
+          name: cicd-automation-stg-compute-eu-west-1c
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.92.0/26
+          id: d2e03066-e591-4150-b40f-f822f824a851
+          name: cicd-automation-stg-data-eu-west-1a
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.92.64/26
+          id: ee59f0dc-661d-4bd3-9d51-35a56a7c3425
+          name: cicd-automation-stg-data-eu-west-1b
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.92.128/26
+          id: 73794ace-45a6-45ff-b7a3-c1a3d9885674
+          name: cicd-automation-stg-data-eu-west-1c
+          parent_cidr: 10.52.80.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.96.0/20
+          id: e9655e3c-164a-45a0-a6a3-df8a417d0db0
+          name: customer-api-stg-vpc
+          metadata:
+            environment: stg
+            product: customer-api
+            size: medium
+            team: platform-api
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.96.0/23
+          id: 739ebdfb-2834-4446-ba82-761648705a91
+          name: customer-api-stg-compute-eu-west-1a
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.98.0/23
+          id: 99e791fe-c540-469b-9b3d-e65ab3de8b43
+          name: customer-api-stg-compute-eu-west-1b
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.100.0/23
+          id: 863caf36-22c9-470e-b331-8c701fc21f0c
+          name: customer-api-stg-compute-eu-west-1c
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.102.0/25
+          id: 890f1d59-3959-4657-b14e-c91383a385ee
+          name: customer-api-stg-data-eu-west-1a
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.102.128/25
+          id: 280ff95a-3e02-423a-81e2-b635e1716026
+          name: customer-api-stg-data-eu-west-1b
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.103.0/25
+          id: cf8458a5-800b-40e7-9b13-13340cfb2f67
+          name: customer-api-stg-data-eu-west-1c
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.103.128/25
+          id: a08aaed7-b7c8-40e8-bc4d-e4c0d71dfc4b
+          name: customer-api-stg-public-eu-west-1a
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.104.0/25
+          id: d2f930cb-22b1-4e4f-b54a-6bfc2e405d2a
+          name: customer-api-stg-public-eu-west-1b
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.104.128/25
+          id: 2789fab4-6408-40bb-a4b8-e706678d7ef7
+          name: customer-api-stg-public-eu-west-1c
+          parent_cidr: 10.52.96.0/20
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.112.0/20
+          id: c56004d2-32e9-41d6-8059-0fe07cb6ce67
+          name: mobile-backend-stg-vpc
+          metadata:
+            environment: stg
+            product: mobile-backend
+            size: medium
+            team: mobile
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.112.0/23
+          id: 00ba7283-f4bf-45a2-9cf5-76e953ee7658
+          name: mobile-backend-stg-compute-eu-west-1a
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.114.0/23
+          id: 5b753e0b-a5dd-4074-9a57-58b05ce3e7b1
+          name: mobile-backend-stg-compute-eu-west-1b
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.116.0/23
+          id: fc5b79fc-0b6b-47a7-a10c-d2ece6906d42
+          name: mobile-backend-stg-compute-eu-west-1c
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.118.0/25
+          id: b29fea15-989a-4557-b90e-a8198113f300
+          name: mobile-backend-stg-data-eu-west-1a
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.118.128/25
+          id: f9ad2322-d600-4e21-b456-a2d9a4428fba
+          name: mobile-backend-stg-data-eu-west-1b
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.119.0/25
+          id: 6a86c9ad-35c9-4d26-b6cc-be3419d56e85
+          name: mobile-backend-stg-data-eu-west-1c
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.119.128/26
+          id: f1650b7d-7c18-4a2a-b97e-4978b1bba5cb
+          name: mobile-backend-stg-public-eu-west-1a
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.119.192/26
+          id: 627e57c3-8a30-48ad-8558-c9bfe769682d
+          name: mobile-backend-stg-public-eu-west-1b
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.120.0/26
+          id: 24225062-5017-4dfa-a746-0221faf3986b
+          name: mobile-backend-stg-public-eu-west-1c
+          parent_cidr: 10.52.112.0/20
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.128.0/20
+          id: 8b26a26c-9211-4647-901d-5e350cef7e31
+          name: payments-gateway-stg-vpc
+          metadata:
+            environment: stg
+            product: payments-gateway
+            size: medium
+            team: payments
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.128.0/23
+          id: 572c22c9-c830-432b-b89e-689fd5d5f617
+          name: payments-gateway-stg-compute-eu-west-1a
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.130.0/23
+          id: 962d8e3c-492a-4540-96dc-05397235548f
+          name: payments-gateway-stg-compute-eu-west-1b
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.132.0/23
+          id: 4c77ef86-685e-4dbb-a398-ccb5fdee4c91
+          name: payments-gateway-stg-compute-eu-west-1c
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.134.0/24
+          id: 3e2b34a5-604d-4d10-b66e-8e03602bf1f6
+          name: payments-gateway-stg-data-eu-west-1a
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.135.0/24
+          id: cb7aaa7a-7e07-4823-ad76-8011833b59b9
+          name: payments-gateway-stg-data-eu-west-1b
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.136.0/24
+          id: 51958cda-ddd4-4649-aafe-b51da9225706
+          name: payments-gateway-stg-data-eu-west-1c
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.137.0/26
+          id: 9f13ea35-8787-45d0-902f-82d947c1ea12
+          name: payments-gateway-stg-public-eu-west-1a
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.137.64/26
+          id: 3473ab0e-db78-415e-8afd-fb3bfe5047e6
+          name: payments-gateway-stg-public-eu-west-1b
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.137.128/26
+          id: 3f80eaef-1626-45f4-a160-d6cac36604ba
+          name: payments-gateway-stg-public-eu-west-1c
+          parent_cidr: 10.52.128.0/20
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.144.0/22
+          id: 636a6035-0e9a-4f9a-9682-acbf330e9edf
+          name: identity-auth-stg-vpc
+          metadata:
+            environment: stg
+            product: identity-auth
+            size: small
+            team: identity
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.144.0/25
+          id: 7d2f4404-73e0-4545-8c0e-9a264bb8ca95
+          name: identity-auth-stg-compute-eu-west-1a
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.144.128/25
+          id: 370a0d95-1a53-4294-8206-70bf5620c6b5
+          name: identity-auth-stg-compute-eu-west-1b
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.145.0/25
+          id: d905846f-fea9-4772-a5ce-b1ab70a55d39
+          name: identity-auth-stg-compute-eu-west-1c
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.145.128/26
+          id: f6464fe7-a398-48e8-969e-390f060f0e78
+          name: identity-auth-stg-data-eu-west-1a
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.145.192/26
+          id: 41ef37e5-d31b-4c02-8a0e-72a233269317
+          name: identity-auth-stg-data-eu-west-1b
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.146.0/26
+          id: e6129e38-0184-4ca1-a555-8e1143fd60ed
+          name: identity-auth-stg-data-eu-west-1c
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.146.64/27
+          id: f7b67c3a-223f-4964-b138-59515d560471
+          name: identity-auth-stg-public-eu-west-1a
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.146.96/27
+          id: 715b8a8d-5391-41b7-b77c-47aed2b3af73
+          name: identity-auth-stg-public-eu-west-1b
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.146.128/27
+          id: 4866302a-5253-4295-af0a-ef56dc80cc99
+          name: identity-auth-stg-public-eu-west-1c
+          parent_cidr: 10.52.144.0/22
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.0/23
+          id: 6c8b9f44-34a5-4696-9255-206f46696558
+          name: email-delivery-stg-vpc
+          metadata:
+            environment: stg
+            product: email-delivery
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.0/26
+          id: ee4d060f-624b-4222-aee1-ff70d1658d37
+          name: email-delivery-stg-compute-eu-west-1a
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.64/26
+          id: 1fec04b5-91d1-42ec-9394-387a38515f06
+          name: email-delivery-stg-compute-eu-west-1b
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.128/26
+          id: 5e83197c-093f-4fcf-9b34-8d0ff49bd6b4
+          name: email-delivery-stg-compute-eu-west-1c
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.192/27
+          id: 47db44a7-b883-444e-b8d8-ee23bff0c69c
+          name: email-delivery-stg-public-eu-west-1a
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.148.224/27
+          id: 41ffa575-94ed-45f6-9067-ae05c3210e5f
+          name: email-delivery-stg-public-eu-west-1b
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.149.0/27
+          id: 49fc95c1-0da2-470e-94b0-bdb1dcdf5115
+          name: email-delivery-stg-public-eu-west-1c
+          parent_cidr: 10.52.148.0/23
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.0/23
+          id: 7185b19d-a5a6-4762-bec8-ac3c8f991310
+          name: notification-service-stg-vpc
+          metadata:
+            environment: stg
+            product: notification-service
+            size: small
+            team: messaging
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.0/26
+          id: 1c9333b1-d189-4e39-bb89-7859cd5ecbc1
+          name: notification-service-stg-compute-eu-west-1a
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.64/26
+          id: 8d3503e2-aa36-4373-890d-b44c4a3d6197
+          name: notification-service-stg-compute-eu-west-1b
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.128/26
+          id: 5544ccd4-8518-4de2-a88e-2871704be286
+          name: notification-service-stg-compute-eu-west-1c
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.192/27
+          id: 19c8d128-83fb-40ee-a40b-d883a139a2e1
+          name: notification-service-stg-data-eu-west-1a
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.150.224/27
+          id: 90bbd25b-9101-444d-9141-05faab2c791e
+          name: notification-service-stg-data-eu-west-1b
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.151.0/27
+          id: c94c787a-1d93-4903-8bd1-6ed9c8cd3cf0
+          name: notification-service-stg-data-eu-west-1c
+          parent_cidr: 10.52.150.0/23
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.0/24
+          id: d85e7858-f9c7-4a4b-a5e6-aba94fe40d79
+          name: accounting-stg-vpc
+          metadata:
+            environment: stg
+            product: accounting
+            size: tiny
+            team: finance
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.0/27
+          id: e79ef042-93c7-4ad9-80c8-ba568124c944
+          name: accounting-stg-compute-eu-west-1a
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.32/27
+          id: c205f944-5326-4b81-85c3-177bd987c6ae
+          name: accounting-stg-compute-eu-west-1b
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.64/27
+          id: 235c9e4b-341c-41bf-a015-d6e5563a086a
+          name: accounting-stg-compute-eu-west-1c
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.96/28
+          id: ffe89981-0d02-4438-8606-aef8d59c1e23
+          name: accounting-stg-data-eu-west-1a
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.112/28
+          id: a3aa74eb-3460-4e35-992e-071720322af3
+          name: accounting-stg-data-eu-west-1b
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.152.128/28
+          id: f76612dc-cb63-4b6d-8bb3-585ce0332b89
+          name: accounting-stg-data-eu-west-1c
+          parent_cidr: 10.52.152.0/24
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.0/24
+          id: 934e66fa-24e4-433e-96c7-d0ccaa843d77
+          name: feature-flags-stg-vpc
+          metadata:
+            environment: stg
+            product: feature-flags
+            size: small
+            team: developer-platform
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.0/27
+          id: 8721e3b6-49f5-42b6-91b8-3f7405ed2bf4
+          name: feature-flags-stg-compute-eu-west-1a
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.32/27
+          id: c079bc40-6728-4586-a3fa-adabae5f3807
+          name: feature-flags-stg-compute-eu-west-1b
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.64/27
+          id: 02b2712c-d1b2-400f-949b-972bcd6cad17
+          name: feature-flags-stg-compute-eu-west-1c
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.96/28
+          id: b49d099e-798e-4a1b-a1cf-c1520fe07098
+          name: feature-flags-stg-data-eu-west-1a
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.112/28
+          id: a7de09a5-f1bf-4b08-8b29-189ebd0f7dfd
+          name: feature-flags-stg-data-eu-west-1b
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.153.128/28
+          id: 6c72c6ee-2998-44ba-a209-9842837a6607
+          name: feature-flags-stg-data-eu-west-1c
+          parent_cidr: 10.52.153.0/24
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.0/25
+          id: 62c576de-152f-4600-83c3-dfd186b1980f
+          name: hr-portal-stg-vpc
+          metadata:
+            environment: stg
+            product: hr-portal
+            size: tiny
+            team: people
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.0/28
+          id: 8ca009c8-6542-4b32-a808-534433955682
+          name: hr-portal-stg-compute-eu-west-1a
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.16/28
+          id: f18a10f8-6444-4293-8152-7c9cc9f20fac
+          name: hr-portal-stg-compute-eu-west-1b
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.32/28
+          id: a6f131bd-ff2d-425e-af9b-8d5c2e52344a
+          name: hr-portal-stg-compute-eu-west-1c
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.48/28
+          id: 03fd7e36-00f7-4c6a-a416-dc3e105c3023
+          name: hr-portal-stg-data-eu-west-1a
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1a
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.64/28
+          id: 47feceb9-9713-4ba7-b629-55fea3886133
+          name: hr-portal-stg-data-eu-west-1b
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1b
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.80/28
+          id: 71578b6e-80cb-41a2-9273-2191962d1e4a
+          name: hr-portal-stg-data-eu-west-1c
+          parent_cidr: 10.52.154.0/25
+          metadata:
+            az: eu-west-1c
+            tier: data
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.128/25
+          id: 9bc007ec-6bf6-458f-9a34-81b4dae8adeb
+          name: status-page-stg-vpc
+          metadata:
+            environment: stg
+            product: status-page
+            size: tiny
+            team: observability
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.128/28
+          id: c45550ed-9767-4fbc-b6fb-4dc8c435cadc
+          name: status-page-stg-compute-eu-west-1a
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1a
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.144/28
+          id: 6ff14639-c6ce-4da0-a22d-92e5d867efe7
+          name: status-page-stg-compute-eu-west-1b
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1b
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.160/28
+          id: ef464387-de79-4f4a-ba2c-854eac5bdfd9
+          name: status-page-stg-compute-eu-west-1c
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1c
+            tier: compute
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.176/28
+          id: 13b6d2b0-2b2f-4878-9c7b-cb69ec1a77e0
+          name: status-page-stg-public-eu-west-1a
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1a
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.192/28
+          id: 0ca7684c-607d-4000-b189-ac55e060a117
+          name: status-page-stg-public-eu-west-1b
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1b
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"
+        - cidr: 10.52.154.208/28
+          id: fe8892df-dab2-4645-b3c9-23631c630721
+          name: status-page-stg-public-eu-west-1c
+          parent_cidr: 10.52.154.128/25
+          metadata:
+            az: eu-west-1c
+            tier: public
+          created_at: "2026-10-29T20:23:16Z"

@@ -5,12 +5,12 @@
 # (RFC 1918) and does not overlap another pool.
 #
 # Layout of 10.0.0.0/8:
-#   10.0.0.0/12   prod-eu-west-1        (1,048,576 addresses)
-#   10.16.0.0/12  prod-ap-southeast-2
-#   10.32.0.0/12  staging
-#   10.48.0.0/12  development
-#   10.64.0.0/16  shared-services
-#   10.65.0.0 - 10.127.255.255  unassigned headroom
+#   10.0.0.0/11   prod-eu-west-1        (2,097,152 addresses: prd VPCs)
+#   10.32.0.0/12  prod-ap-southeast-2   (1,048,576)
+#   10.48.0.0/12  staging               (stg VPCs)
+#   10.64.0.0/12  development           (dev VPCs)
+#   10.80.0.0/16  shared-services
+#   10.81.0.0 - 10.127.255.255  unassigned headroom
 #   10.128.0.0/9  reserved-future       (no allocations allowed)
 #
 # Pool IDs are referenced by Terraform as `pool_id`, so treat them as
@@ -18,7 +18,7 @@
 
 pools:
   prod-eu-west-1:
-    cidr: ["10.0.0.0/12"]
+    cidr: ["10.0.0.0/11"]
     description: "Production VPCs in eu-west-1"
     metadata:
       environment: production
@@ -26,7 +26,7 @@ pools:
       owner: platform
 
   prod-ap-southeast-2:
-    cidr: ["10.16.0.0/12"]
+    cidr: ["10.32.0.0/12"]
     description: "Production VPCs in ap-southeast-2"
     metadata:
       environment: production
@@ -34,21 +34,21 @@ pools:
       owner: platform
 
   staging:
-    cidr: ["10.32.0.0/12"]
+    cidr: ["10.48.0.0/12"]
     description: "Staging VPCs, all regions"
     metadata:
       environment: staging
       owner: platform
 
   development:
-    cidr: ["10.48.0.0/12"]
+    cidr: ["10.64.0.0/12"]
     description: "Development and sandbox VPCs, all regions"
     metadata:
       environment: development
       owner: platform
 
   shared-services:
-    cidr: ["10.64.0.0/16"]
+    cidr: ["10.80.0.0/16"]
     description: "Transit gateway, VPN, DNS resolvers, inspection VPCs"
     metadata:
       environment: shared

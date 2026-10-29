@@ -15,9 +15,9 @@
 | Property | Value |
 |:---------|:------|
 | Pool Name | shared-services |
-| CIDR | `10.64.0.0/16` (10.64.0.0 - 10.64.255.255) |
+| CIDR | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) |
 | Total Addresses | 65,536 |
-| Allocated | 6,720/65,536 (10.3%) |
+| Allocated | 0/65,536 (0.0%) |
 | Environment | shared |
 | Owner | network |
 
@@ -25,14 +25,5 @@
 
 | Status | Name | CIDR | Addresses |
 |:-------|:-----|:-----|----------:|
-| 🔵&nbsp;&nbsp;Allocated | transit-gateway-euw1 | `10.64.0.0/24` (10.64.0.0 - 10.64.0.255) | 256 |
-| 🔵&nbsp;&nbsp;Allocated | dns-resolvers-euw1 | `10.64.1.0/26` (10.64.1.0 - 10.64.1.63) | 64 |
-| ⚪&nbsp;&nbsp;Available | — | `10.64.1.64—10.64.1.255` (10.64.1.64 - 10.64.1.255) | 192 |
-| 🔵&nbsp;&nbsp;Allocated | transit-gateway-apse2 | `10.64.2.0/24` (10.64.2.0 - 10.64.2.255) | 256 |
-| ⚪&nbsp;&nbsp;Available | — | `10.64.3.0/24` (10.64.3.0 - 10.64.3.255) | 256 |
-| 🔵&nbsp;&nbsp;Allocated | inspection-vpc-euw1 | `10.64.4.0/22` (10.64.4.0 - 10.64.7.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | inspection-vpc-apse2 | `10.64.8.0/22` (10.64.8.0 - 10.64.11.255) | 1,024 |
-| ⚪&nbsp;&nbsp;Available | — | `10.64.12.0/22` (10.64.12.0 - 10.64.15.255) | 1,024 |
-| 🔵&nbsp;&nbsp;Allocated | vpn-clients | `10.64.16.0/20` (10.64.16.0 - 10.64.31.255) | 4,096 |
-| ⚪&nbsp;&nbsp;Available | — | `10.64.32.0—10.64.255.255` (10.64.32.0 - 10.64.255.255) | 57,344 |
+| ⚪&nbsp;&nbsp;Available | — | `10.80.0.0/16` (10.80.0.0 - 10.80.255.255) | 65,536 |
 

@@ -16,20 +16,42 @@ variable "ipam_repository" {
   default     = "ipam-example"
 }
 
-variable "name" {
-  description = "Name prefix for this network, used in allocation names."
-  type        = string
-  default     = "payments-dev"
-}
-
-variable "pool_id" {
-  description = "Pool in config/pools.yaml to allocate the VPC from."
-  type        = string
-  default     = "development"
+variable "env_pools" {
+  description = "Which pool in config/pools.yaml each environment's VPCs come from."
+  type        = map(string)
+  default = {
+    dev = "development"
+    stg = "staging"
+    prd = "prod-eu-west-1"
+  }
 }
 
 variable "azs" {
-  description = "Availability zones to create subnets in."
+  description = "Availability zones; every tier gets one subnet per AZ."
   type        = list(string)
   default     = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
+}
+
+variable "publish_to_ssm" {
+  description = "Publish each VPC's CIDRs to SSM Parameter Store in its application account. Off by default so the example runs with only a GitHub token."
+  type        = bool
+  default     = false
+}
+
+variable "aws_region" {
+  description = "Region the VPCs (and their SSM parameters) live in."
+  type        = string
+  default     = "eu-west-1"
+}
+
+variable "ssm_publisher_role_name" {
+  description = "IAM role assumed in every application account to write the parameters (see README for its policy)."
+  type        = string
+  default     = "ipam-ssm-publisher"
+}
+
+variable "ssm_prefix" {
+  description = "Parameter path prefix in each application account."
+  type        = string
+  default     = "/platform/network"
 }
